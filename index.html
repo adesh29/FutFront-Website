@@ -56,7 +56,7 @@
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo and Brand Name -->
             <div class="flex items-center space-x-3">
-                <img src="FutFrontlogo.png" alt="FutFront Logo" class="h-5 w-5 object-contain">
+                <img src="FutFrontlogo.png" alt="FutFront Logo" class="h-9 w-9 object-contain">
                 <div class="text-3xl font-bold text-blue-600">FutFront</div>
             </div>
             <!-- Navigation Links -->
@@ -162,33 +162,37 @@
 
     <!-- Demos Section -->
     <section id="demos" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16">Product Demos</h2>
-            <div class="grid md:grid-cols-3 gap-8 demos-grid">
-                <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
-                    <div class="aspect-video bg-gray-300 mb-4 rounded-lg">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/RU1xcT3lPlY" frameborder="0" allowfullscreen class="rounded-lg"></iframe>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">AI Customer Experience</h3>
-                    <p>Explore our advanced CX solutions in action.</p>
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16">Product Demos</h2>
+        <div class="grid md:grid-cols-3 gap-8 demos-grid">
+            <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
+                <div class="aspect-video bg-gray-300 mb-4 rounded-lg">
+                    <!-- Correcting the iframe width and height using Tailwind utility classes -->
+                    <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/RU1xcT3lPlY" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
-                    <div class="aspect-video bg-gray-300 mb-4 rounded-lg">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/RU1xcT3lPlY" frameborder="0" allowfullscreen class="rounded-lg"></iframe>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">Competitive Intelligence</h3>
-                    <p>See how our predictive models work.</p>
+                <h3 class="text-xl font-semibold mb-2">AI Customer Experience</h3>
+                <p>Explore our advanced CX solutions in action.</p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
+                <div class="aspect-video bg-gray-300 mb-4 rounded-lg">
+                    <!-- Same as above -->
+                    <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/RU1xcT3lPlY" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
-                    <div class="aspect-video bg-gray-300 mb-4 rounded-lg">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/RU1xcT3lPlY" frameborder="0" allowfullscreen class="rounded-lg"></iframe>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">AI Chatbot Insights</h3>
-                    <p>Demonstration of our intelligent chatbot capabilities.</p>
+                <h3 class="text-xl font-semibold mb-2">Competitive Intelligence</h3>
+                <p>See how our predictive models work.</p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
+                <div class="aspect-video bg-gray-300 mb-4 rounded-lg">
+                    <!-- Same as above -->
+                    <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/RU1xcT3lPlY" frameborder="0" allowfullscreen></iframe>
                 </div>
+                <h3 class="text-xl font-semibold mb-2">AI Chatbot Insights</h3>
+                <p>Demonstration of our intelligent chatbot capabilities.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 gradient-bg text-white">
