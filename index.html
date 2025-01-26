@@ -15,7 +15,7 @@
             scroll-behavior: smooth;
         }
         .gradient-bg {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            background: linear-gradient(135deg, #441c94 0%, #5c14eb 100%);
         }
         .blur-bg {
             backdrop-filter: blur(10px);
@@ -51,25 +51,22 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
-    <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo and Brand Name -->
             <div class="flex items-center space-x-3">
                 <img src="FutFrontlogo.png" alt="FutFront Logo" class="h-13 w-13 object-contain">
-                <div class="text-3xl font-bold text-blue-600">FutFront</div>
+                <div class="text-3xl font-bold text-[#441c94]">FutFront</div>
             </div>
             <!-- Navigation Links -->
             <div class="space-x-6">
-                <a href="#home" class="hover:text-blue-600 transition">Home</a>
-                <a href="#services" class="hover:text-blue-600 transition">Services</a>
-                <a href="#demos" class="hover:text-blue-600 transition">Demos</a>
-                <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">Contact</a>
+                <a href="#home" class="hover:text-[#5c14eb] transition">Home</a>
+                <a href="#services" class="hover:text-[#5c14eb] transition">Services</a>
+                <a href="#demos" class="hover:text-[#5c14eb] transition">Demos</a>
+                <a href="#contact" class="bg-[#441c94] text-white px-4 py-2 rounded-full hover:bg-[#5c14eb] transition">Contact</a>
             </div>
         </div>
     </nav>
-
-
 
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center gradient-bg text-white relative overflow-hidden">
@@ -77,12 +74,12 @@
             <div class="max-w-3xl">
                 <h1 class="text-5xl font-bold mb-6 animate__animated animate__fadeInUp">Transform Your Business with AI-Powered Solutions</h1>
                 <p class="text-xl mb-8 animate__animated animate__fadeInUp animate__delay-1s">Innovative tech services that drive operational efficiency and customer satisfaction</p>
-                <a href="#services" class="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-100 transition animate__animated animate__fadeInUp animate__delay-2s">Explore Our Services</a>
+                <a href="#services" class="bg-[#fbb33c] text-[#441c94] px-6 py-3 rounded-full hover:bg-[#fbb33c]/90 transition animate__animated animate__fadeInUp animate__delay-2s">Explore Our Services</a>
             </div>
         </div>
         <div class="absolute inset-0 opacity-20">
-            <div class="absolute w-80 h-80 bg-blue-500 rounded-full blur-3xl top-1/4 -left-20"></div>
-            <div class="absolute w-96 h-96 bg-indigo-500 rounded-full blur-3xl bottom-1/4 -right-20"></div>
+            <div class="absolute w-80 h-80 bg-[#733bfb] rounded-full blur-3xl top-1/4 -left-20"></div>
+            <div class="absolute w-96 h-96 bg-[#5c14eb] rounded-full blur-3xl bottom-1/4 -right-20"></div>
         </div>
     </section>
 
@@ -93,21 +90,21 @@
             <div class="grid md:grid-cols-3 gap-8 services-grid">
                 <!-- AI Customer Experience -->
                 <div class="bg-gray-100 p-8 rounded-xl shadow-lg transform service-card cursor-pointer" onclick="openModal('cx-modal')">
-                    <div class="text-5xl text-blue-600 mb-6">🧠</div>
+                    <div class="text-5xl text-[#441c94] mb-6">🧠</div>
                     <h3 class="text-2xl font-semibold mb-4">AI Customer Experience</h3>
                     <p>Advanced CX solutions leveraging cutting-edge AI to transform customer interactions.</p>
                 </div>
 
                 <!-- Competitive Intelligence -->
                 <div class="bg-gray-100 p-8 rounded-xl shadow-lg transform service-card cursor-pointer" onclick="openModal('ci-modal')">
-                    <div class="text-5xl text-blue-600 mb-6">📊</div>
+                    <div class="text-5xl text-[#441c94] mb-6">📊</div>
                     <h3 class="text-2xl font-semibold mb-4">Competitive Intelligence</h3>
                     <p>Strategic insights and tools to stay ahead in your competitive landscape.</p>
                 </div>
 
                 <!-- AI-Driven Chatbot Insights -->
                 <div class="bg-gray-100 p-8 rounded-xl shadow-lg transform service-card cursor-pointer" onclick="openModal('chatbot-modal')">
-                    <div class="text-5xl text-blue-600 mb-6">💬</div>
+                    <div class="text-5xl text-[#441c94] mb-6">💬</div>
                     <h3 class="text-2xl font-semibold mb-4">AI Chatbot Insights</h3>
                     <p>Intelligent conversational AI for deep insights.</p>
                 </div>
@@ -115,12 +112,12 @@
         </div>
     </section>
 
-    <!-- Service Modals -->
+    <!-- Service Modals remain the same -->
     <div id="cx-modal" class="service-modal">
         <div class="service-modal-content">
             <h2 class="text-2xl font-bold mb-4">AI Customer Experience</h2>
             <p>Comprehensive AI-driven solutions to transform customer interactions. Our advanced technology analyzes customer touchpoints, predicts preferences, and personalizes experiences in real-time.</p>
-            <button onclick="closeModal('cx-modal')" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded">Close</button>
+            <button onclick="closeModal('cx-modal')" class="mt-4 bg-[#441c94] text-white px-4 py-2 rounded">Close</button>
         </div>
     </div>
 
@@ -128,7 +125,7 @@
         <div class="service-modal-content">
             <h2 class="text-2xl font-bold mb-4">Competitive Intelligence</h2>
             <p>Advanced market analysis tools that provide real-time insights into competitor strategies, market trends, and potential opportunities. Our AI-powered platform turns complex data into actionable intelligence.</p>
-            <button onclick="closeModal('ci-modal')" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded">Close</button>
+            <button onclick="closeModal('ci-modal')" class="mt-4 bg-[#441c94] text-white px-4 py-2 rounded">Close</button>
         </div>
     </div>
 
@@ -136,7 +133,7 @@
         <div class="service-modal-content">
             <h2 class="text-2xl font-bold mb-4">AI Chatbot Insights</h2>
             <p>Intelligent conversational AI that provides deep, contextual insights. Our chatbot analyzes interactions, extracts meaningful patterns, and offers strategic recommendations across customer service, sales, and support domains.</p>
-            <button onclick="closeModal('chatbot-modal')" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded">Close</button>
+            <button onclick="closeModal('chatbot-modal')" class="mt-4 bg-[#441c94] text-white px-4 py-2 rounded">Close</button>
         </div>
     </div>
 
@@ -146,29 +143,28 @@
             <h2 class="text-4xl font-bold text-center mb-16">Our Product Suite</h2>
             <div class="grid md:grid-cols-3 gap-8 products-grid">
                 <div class="bg-white p-8 rounded-xl shadow-lg blur-bg">
-                    <h3 class="text-2xl font-semibold mb-4 text-blue-600">Email Automation</h3>
+                    <h3 class="text-2xl font-semibold mb-4 text-[#5c14eb]">Email Automation</h3>
                     <p>NLP-driven communication streamlining with advanced machine learning.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg blur-bg">
-                    <h3 class="text-2xl font-semibold mb-4 text-blue-600">Live Call Support</h3>
+                    <h3 class="text-2xl font-semibold mb-4 text-[#5c14eb]">Live Call Support</h3>
                     <p>Real-time AI assistance for enhanced customer interactions.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg blur-bg">
-                    <h3 class="text-2xl font-semibold mb-4 text-blue-600">Propensity Modeling</h3>
+                    <h3 class="text-2xl font-semibold mb-4 text-[#5c14eb]">Propensity Modeling</h3>
                     <p>AI-powered predictive modeling for customer behavior and risk assessment.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Demos Section -->
+    <!-- Demos Section remains the same -->
     <section id="demos" class="py-20 bg-white">
     <div class="container mx-auto px-6">
         <h2 class="text-4xl font-bold text-center mb-16">Product Demos</h2>
         <div class="grid md:grid-cols-3 gap-8 demos-grid">
             <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
                 <div class="aspect-video bg-gray-300 mb-4 rounded-lg">
-                    <!-- Correcting the iframe width and height using Tailwind utility classes -->
                     <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/RU1xcT3lPlY" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <h3 class="text-xl font-semibold mb-2">AI Customer Experience</h3>
@@ -176,7 +172,6 @@
             </div>
             <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
                 <div class="aspect-video bg-gray-300 mb-4 rounded-lg">
-                    <!-- Same as above -->
                     <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/RU1xcT3lPlY" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <h3 class="text-xl font-semibold mb-2">Competitive Intelligence</h3>
@@ -184,7 +179,6 @@
             </div>
             <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
                 <div class="aspect-video bg-gray-300 mb-4 rounded-lg">
-                    <!-- Same as above -->
                     <iframe class="w-full h-full rounded-lg" src="https://www.youtube.com/embed/RU1xcT3lPlY" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <h3 class="text-xl font-semibold mb-2">AI Chatbot Insights</h3>
@@ -193,7 +187,6 @@
         </div>
     </div>
 </section>
-
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 gradient-bg text-white">
@@ -206,7 +199,7 @@
                     <textarea id="messageInput" placeholder="Your Message" required class="w-full p-4 mb-4 bg-white/10 rounded-lg text-white placeholder-white/70" rows="4"></textarea>
                     <div id="formStatus" class="mb-4 text-center"></div>
                     <div class="flex justify-center space-x-4 mb-4">
-                        <button type="submit" class="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-100 transition">Send Message</button>
+                        <button type="submit" class="bg-[#fbb33c] text-[#441c94] px-6 py-3 rounded-full hover:bg-[#fbb33c]/90 transition">Send Message</button>
                     </div>
                 </form>
             </div>
@@ -262,7 +255,7 @@
             try {
                 const response = await fetch(SCRIPT_URL, {
                     method: 'POST',
-                    mode: 'no-cors', // Important for Google Apps Script
+                    mode: 'no-cors',
                     cache: 'no-cache',
                     headers: {
                         'Content-Type': 'application/json',
