@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="FutFrontlogo.png">
+
     <title>FutFront - Innovative Tech Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
@@ -52,43 +54,43 @@
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <!-- Logo -->
-                <div class="text-2xl font-bold text-blue-600">
-                    FutFront
-                </div>
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="FutFrontlogo.png" alt="FutFront Logo" class="w-8 h-8 mr-2">
+                <span class="text-2xl font-bold text-blue-600">FutFront</span>
+            </div>
 
-                <!-- Menu for larger screens -->
-                <!-- Updated Navbar for larger screens -->
-                <div class="hidden md:flex space-x-6">
-                    <a href="#home" class="text-gray-700 hover:text-blue-600">Home</a>
-                    <a href="#services" class="text-gray-700 hover:text-blue-600">Services</a>
-                    <a href="#demos" class="text-gray-700 hover:text-blue-600">Demo</a>
-                    <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
-                </div>
+            <!-- Menu for larger screens -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="text-gray-700 hover:text-blue-600">Home</a>
+                <a href="#services" class="text-gray-700 hover:text-blue-600">Services</a>
+                <a href="#demos" class="text-gray-700 hover:text-blue-600">Demo</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+            </div>
 
-
-                <!-- Hamburger icon for mobile -->
-                <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="focus:outline-none">
-                        <svg class="w-6 h-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                    </button>
-                </div>
+            <!-- Hamburger icon for mobile -->
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="focus:outline-none">
+                    <svg class="w-6 h-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
             </div>
         </div>
+    </div>
 
-        <!-- Mobile menu (hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white">
-            <a href="#home" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Home</a>
-            <a href="#services" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Services</a>
-            <a href="#demos" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Demo</a>
-            <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Contact</a>
-        </div>
-    </nav>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white">
+        <a href="#home" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Home</a>
+        <a href="#services" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Services</a>
+        <a href="#demos" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Demo</a>
+        <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Contact</a>
+    </div>
+</nav>
+
 
 
 
