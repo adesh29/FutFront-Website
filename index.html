@@ -1,178 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FutFront - We Build What’s Next</title>
-    <link
-      rel="shortcut icon"
-      href="https://cdn-icons-png.flaticon.com/512/4725/4725155.png"
-      type="image/x-icon"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
-  </head>
-  <body class="bg-gray-50 text-gray-800 font-sans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="FutFrontlogo.png">
+  <title>FutFront – Full-Stack Tech, Advisory & Analytics</title>
 
-    <!-- Navbar -->
-    <nav class="bg-white shadow sticky top-0 z-50">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="flex justify-between items-center py-4">
-          <h1 class="text-2xl font-bold text-blue-700">FutFront</h1>
-          <div class="space-x-6 hidden md:flex">
-            <a href="#services" class="hover:text-blue-600">Services</a>
-            <a href="#about" class="hover:text-blue-600">About</a>
-            <a href="#demos" class="hover:text-blue-600">Demos</a>
-            <a href="#contact" class="hover:text-blue-600">Contact</a>
+  <!-- Tailwind & allies -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+    body{font-family:'Inter',sans-serif;scroll-behavior:smooth;}
+    .gradient-bg{background:linear-gradient(135deg,#3b82f6 0%,#2563eb 100%);}
+    .service-card{transition:.3s;}
+    .service-card:hover{transform:scale(1.05);box-shadow:0 10px 25px rgba(0,0,0,.1);}
+    .service-modal{position:fixed;top:0;left:0;width:100%;height:100%;
+                   background:rgba(0,0,0,.7);display:none;z-index:1000;
+                   align-items:center;justify-content:center;}
+    .service-modal-content{background:#fff;padding:2rem;border-radius:1rem;
+                           max-width:600px;width:90%;}
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+<!-- ███ Navigation ███ -->
+<nav class="bg-white shadow-lg sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-2">
+    <div class="flex justify-between items-center py-4">
+      <div class="flex items-center">
+        <img src="FutFrontlogo.png" alt="FutFront Logo" class="w-6 h-6 mr-3">
+        <span class="text-2xl font-bold text-blue-600">FutFront</span>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <a href="#home"    class="nav-link">Home</a>
+        <a href="#services"class="nav-link">Services</a>
+        <a href="#about"   class="nav-link">About Us</a>
+        <a href="#demos"   class="nav-link">Demos</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <button id="menu-btn" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-white">
+    <a href="#home"    class="mobile-link">Home</a>
+    <a href="#services"class="mobile-link">Services</a>
+    <a href="#about"   class="mobile-link">About Us</a>
+    <a href="#demos"   class="mobile-link">Demos</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
+</nav>
+
+<!-- ███ Hero ███ -->
+<section id="home" class="min-h-[85vh] flex items-center gradient-bg text-white relative overflow-hidden">
+  <div class="container mx-auto px-6 z-10">
+    <h1 class="text-5xl font-bold mb-6 animate__animated animate__fadeInUp">
+      Beyond Services—We Engineer, Advise & Analyze
+    </h1>
+    <p class="text-xl mb-8 animate__animated animate__fadeInUp animate__delay-1s">
+      From zero-to-one product builds to enterprise-scale analytics, FutFront
+      is your end-to-end tech partner.
+    </p>
+    <a href="#services" class="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-100 transition animate__animated animate__fadeInUp animate__delay-2s">
+      Explore Our Edge
+    </a>
+  </div>
+  <!-- blurred blobs -->
+  <div class="absolute inset-0 opacity-20">
+    <div class="absolute w-80 h-80 bg-blue-500 rounded-full blur-3xl top-1/4 -left-20"></div>
+    <div class="absolute w-96 h-96 bg-indigo-500 rounded-full blur-3xl bottom-1/4 -right-20"></div>
+  </div>
+</section>
+
+<!-- ███ Services ███ -->
+<section id="services" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-16">What We Deliver</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 services-grid">
+
+      <!-- AI CX -->
+      <div class="service-card bg-gray-100 p-8 rounded-xl shadow-lg cursor-pointer"
+           onclick="openModal('cx-modal')">
+        <div class="text-5xl text-blue-600 mb-6">🤖</div>
+        <h3 class="text-2xl font-semibold mb-4">AI-Driven CX</h3>
+        <p>Hyper-personalised, always-on customer journeys.</p>
+      </div>
+
+      <!-- Software Solutions -->
+      <div class="service-card bg-gray-100 p-8 rounded-xl shadow-lg cursor-pointer"
+           onclick="openModal('software-modal')">
+        <div class="text-5xl text-blue-600 mb-6">💻</div>
+        <h3 class="text-2xl font-semibold mb-4">Software Solutions</h3>
+        <p>Full-stack engineering—from architecture to app stores.</p>
+      </div>
+
+      <!-- Advisory & Analytics -->
+      <div class="service-card bg-gray-100 p-8 rounded-xl shadow-lg cursor-pointer"
+           onclick="openModal('advisory-modal')">
+        <div class="text-5xl text-blue-600 mb-6">🧭</div>
+        <h3 class="text-2xl font-semibold mb-4">Advisory & Analytics</h3>
+        <p>Data-backed strategy to de-risk, scale and optimise.</p>
+      </div>
+
+      <!-- Competitive Intelligence -->
+      <div class="service-card bg-gray-100 p-8 rounded-xl shadow-lg cursor-pointer"
+           onclick="openModal('ci-modal')">
+        <div class="text-5xl text-blue-600 mb-6">📊</div>
+        <h3 class="text-2xl font-semibold mb-4">Competitive Intelligence</h3>
+        <p>Out-smart rivals with live market signals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ███ Service Modals ███ -->
+<div id="cx-modal"        class="service-modal"><div class="service-modal-content">
+  <h2 class="text-2xl font-bold mb-4">AI-Driven Customer Experience</h2>
+  <p>Predictive personalisation, voice + chat automation, and emotion-aware
+     feedback loops—engineered to amplify retention.</p>
+  <button onclick="closeModal('cx-modal')" class="btn-close">Close</button></div></div>
+
+<div id="software-modal"  class="service-modal"><div class="service-modal-content">
+  <h2 class="text-2xl font-bold mb-4">Software Solutions</h2>
+  <p>Micro-services, cloud-native, mobile or web—our builds ship secure,
+     scalable and CI/CD-ready. UX research, design sprints, QA & DevOps included.</p>
+  <button onclick="closeModal('software-modal')" class="btn-close">Close</button></div></div>
+
+<div id="advisory-modal"  class="service-modal"><div class="service-modal-content">
+  <h2 class="text-2xl font-bold mb-4">Advisory & Analytics</h2>
+  <p>From product–market fit to Go-To-Market, we plug analytics into every
+     decision—ensuring ROI across build, launch and growth.</p>
+  <button onclick="closeModal('advisory-modal')" class="btn-close">Close</button></div></div>
+
+<div id="ci-modal"        class="service-modal"><div class="service-modal-content">
+  <h2 class="text-2xl font-bold mb-4">Competitive Intelligence</h2>
+  <p>Automated surveillance of competitors, pricing moves and market chatter,
+     delivered as battle-ready dashboards.</p>
+  <button onclick="closeModal('ci-modal')" class="btn-close">Close</button></div></div>
+
+<!-- ███ About Us ███ -->
+<section id="about" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-16">Who We Are</h2>
+
+    <div class="grid md:grid-cols-3 gap-10 mb-16">
+      <!-- Adesh -->
+      <div class="bg-white rounded-xl p-8 shadow-lg">
+        <img src="adesh.jpg" alt="Adesh Bhavsar" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-center">Adesh Bhavsar</h3>
+        <p class="text-center text-sm text-gray-600">Co-founder</p>
+        <p class="mt-4 text-gray-700 text-sm">
+          Turns big-bang ideas into shipping products. Ex-NBFC, IIT-B alum, passionate about marrying finance with deep tech.
+        </p>
+      </div>
+      <!-- Ravi -->
+      <div class="bg-white rounded-xl p-8 shadow-lg">
+        <img src="ravi.jpg" alt="Ravi Kumar" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-center">Ravi Kumar</h3>
+        <p class="text-center text-sm text-gray-600">Co-founder</p>
+        <p class="mt-4 text-gray-700 text-sm">
+          Full-stack polyglot who scales systems to millions of users. Loves clean architecture and caffeinated code reviews.
+        </p>
+      </div>
+      <!-- Abhishek -->
+      <div class="bg-white rounded-xl p-8 shadow-lg">
+        <img src="abhishek.jpg" alt="Abhishek Malyan" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-center">Abhishek Malyan</h3>
+        <p class="text-center text-sm text-gray-600">Co-founder</p>
+        <p class="mt-4 text-gray-700 text-sm">
+          Puts numbers to work—ML, BI dashboards, and actionable insights that power board-room decisions.
+        </p>
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-2xl font-semibold mb-4">Our Mission</h3>
+      <p class="text-gray-700 mb-6">
+        Enable organisations to leapfrog from idea to impact—through craftsmanship in software,
+        obsessively human-centric design, and evidence-driven advisory.
+      </p>
+      <h3 class="text-2xl font-semibold mb-4">The Road Ahead</h3>
+      <p class="text-gray-700">
+        🔹 2025: Launch our no-code analytics studio<br>
+        🔹 2026: 1 B+ data events processed per day<br>
+        🔹 2027: Global presence across 3 continents<br>
+        FutFront isn't just service-based—we co-create products that reshape industries.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ███ Demos ███ -->
+<section id="demos" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-16">Product Demos</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 demos-grid">
+      <!-- Demo 1 -->
+      <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
+        <div class="aspect-video bg-gray-300 mb-4 rounded-lg">
+          <iframe class="w-full h-full rounded-lg"
+                  src="https://www.youtube.com/embed/RU1xcT3lPlY" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Competitive Intelligence</h3>
+        <p>Watch real-time market insight in action.</p>
+      </div>
+      <!-- Demo 2 -->
+      <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
+        <div class="aspect-video bg-gray-300 mb-4 rounded-lg">
+          <iframe class="w-full h-full rounded-lg"
+                  src="https://www.youtube.com/embed/WM9nvMdK99A" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Inventory Management</h3>
+        <p>Predictive stock optimisation demo.</p>
+      </div>
+      <!-- Demo 3 NEW -->
+      <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
+        <div class="aspect-video bg-gray-300 mb-4 rounded-lg">
+          <iframe class="w-full h-full rounded-lg"
+                  src="https://www.youtube.com/embed/pF1FvUyrvWI" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Custom AI Solution</h3>
+        <p>Tailored AI from blank page to production.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ███ Contact ███ -->
+<section id="contact" class="py-20 gradient-bg text-white">
+  <div class="container mx-auto px-6">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-12">Get in Touch</h2>
+      <div class="bg-white/15 backdrop-blur-sm p-8 rounded-2xl shadow-2xl border border-white/20">
+        <form id="contactForm" class="space-y-6">
+          <div>
+            <input type="text" id="nameInput" placeholder="Your Name" required 
+                   class="w-full p-4 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all">
           </div>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Hero -->
-    <header class="text-center py-20 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
-      <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeInDown">We Build What’s Next</h1>
-      <p class="text-xl">AI-first Digital Experiences for Tomorrow’s Users</p>
-    </header>
-
-    <!-- Services -->
-    <section id="services" class="py-20 px-4 max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-10">Our Services</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer">
-          <h3 class="text-xl font-semibold mb-2">AI CX</h3>
-          <p>Automate customer interaction with empathy using cutting-edge LLMs, fine-tuned on your business.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer">
-          <h3 class="text-xl font-semibold mb-2">Software</h3>
-          <p>Crafting responsive frontends, scalable APIs, and seamless integrations for your business ops.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer">
-          <h3 class="text-xl font-semibold mb-2">Advisory</h3>
-          <p>Execution-focused strategy for AI & Digital transformation—ideation to implementation.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer">
-          <h3 class="text-xl font-semibold mb-2">Competitive Intel</h3>
-          <p>Track new launches, pricing, org changes, and signals—at scale, in real-time.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Us -->
-    <section id="about" class="py-20 px-4 bg-gray-100">
-      <h2 class="text-3xl font-bold text-center mb-10">About Us</h2>
-      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-        <div>
-          <img src="adesh.jpg" alt="Adesh" class="w-32 h-32 rounded-full mx-auto mb-4" />
-          <h3 class="font-semibold">Adesh</h3>
-          <p class="text-sm">Design + Infra</p>
-        </div>
-        <div>
-          <img src="ravi.jpg" alt="Ravi" class="w-32 h-32 rounded-full mx-auto mb-4" />
-          <h3 class="font-semibold">Ravi</h3>
-          <p class="text-sm">Strategy + GTM</p>
-        </div>
-        <div>
-          <img src="yash.jpg" alt="Yash" class="w-32 h-32 rounded-full mx-auto mb-4" />
-          <h3 class="font-semibold">Yash</h3>
-          <p class="text-sm">Product + Ops</p>
-        </div>
-      </div>
-      <div class="mt-12 text-center max-w-3xl mx-auto">
-        <h3 class="text-2xl font-semibold mb-2">Our Mission</h3>
-        <p class="mb-4">
-          To bring cutting-edge tech and insight-led execution to companies that want to scale fast.
-        </p>
-        <h3 class="text-2xl font-semibold mb-2">Roadmap</h3>
-        <p>
-          Launching 3 new AI tools in Q4. Partnering with 10+ startups and 2 large enterprises in FY 2025.
-        </p>
-      </div>
-    </section>
-
-    <!-- Demos -->
-    <section id="demos" class="py-20 px-4 max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-10">Demos</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <iframe class="w-full aspect-video rounded" src="https://www.youtube.com/embed/jNQXAC9IVRw" frameborder="0" allowfullscreen></iframe>
-        <iframe class="w-full aspect-video rounded" src="https://www.youtube.com/embed/jNQXAC9IVRw" frameborder="0" allowfullscreen></iframe>
-        <iframe class="w-full aspect-video rounded" src="https://www.youtube.com/embed/jNQXAC9IVRw" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </section>
-
-    <!-- Get in Touch -->
-    <section id="contact" class="py-20 bg-white px-4">
-      <div class="max-w-xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
-        <p class="mb-8 text-gray-600">Want to collaborate, partner, or just have coffee? Let’s talk.</p>
-        <form id="contact-form" class="space-y-6 bg-gray-50 p-8 rounded-lg shadow">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            required
-            class="w-full p-3 border border-gray-300 rounded"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            required
-            class="w-full p-3 border border-gray-300 rounded"
-          />
-          <textarea
-            name="message"
-            rows="5"
-            placeholder="Your Message"
-            required
-            class="w-full p-3 border border-gray-300 rounded"
-          ></textarea>
-          <button
-            type="submit"
-            class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition"
-          >
-            Send Message
-          </button>
+          <div>
+            <input type="email" id="emailInput" placeholder="Your Email" required 
+                   class="w-full p-4 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all">
+          </div>
+          <div>
+            <textarea id="messageInput" placeholder="Your Message" required rows="5" 
+                      class="w-full p-4 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all resize-none"></textarea>
+          </div>
+          <div id="formStatus" class="text-center"></div>
+          <div class="text-center">
+            <button type="submit" class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-lg">
+              Send Message
+            </button>
+          </div>
         </form>
-        <p id="form-status" class="mt-4 text-sm text-green-600 hidden">Message sent!</p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white text-center py-4">
-      <p>&copy; 2025 FutFront. All rights reserved.</p>
-    </footer>
+<footer class="bg-gray-900 text-white py-8">
+  <div class="container mx-auto px-6 text-center">
+    <p>&copy; 2025 FutFront. All rights reserved.</p>
+  </div>
+</footer>
 
-    <!-- Script -->
-    <script>
-      const form = document.getElementById('contact-form');
-      const statusMsg = document.getElementById('form-status');
+<!-- ███ Scripts ███ -->
+<script>
+  /* nav mobile toggle */
+  document.getElementById('menu-btn').addEventListener('click',()=> {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
 
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        const formData = new FormData(form);
-        try {
-          const res = await fetch('YOUR_GOOGLE_SCRIPT_URL_HERE', {
-            method: 'POST',
-            body: formData,
-          });
-          if (res.ok) {
-            form.reset();
-            statusMsg.classList.remove('hidden');
-          } else {
-            alert('Something went wrong!');
-          }
-        } catch (err) {
-          alert('Submission failed.');
-        }
-      });
-    </script>
-  </body>
-</html>
+  /* GSAP fade-in */
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.utils.toArray('.services-grid > div, .demos-grid > div').forEach(el=>{
+    gsap.from(el,{scrollTrigger:{trigger:el,start:'top 80%'},opacity:0,y:50,duration:.8});
+  });
+
+  /* Modals */
+  function openModal(id){document.getElementById(id).style.display='flex';}
+  function closeModal(id){document.getElementById(id).style.display='none';}
+
+  /* Contact-form → Google Sheet */
+  const SCRIPT_URL='https://script.google.com/macros/s/AKfycbwbLM74KZryYxo5gwXBeSaYh2yqNG4aJeE5UIdIaz0W0nHreXqu7YpFTeXgSgyEmz6Qqw/exec';
+   // ← paste Web-app URL from Apps Script deploy
+  document.getElementById('contactForm').addEventListener('submit',async e=>{
+    e.preventDefault();
+    const status=document.getElementById('formStatus');
+    status.textContent='Sending…'; status.className='text-center text-yellow-300';
+
+    const payload={
+      name:document.getElementById('nameInput').value.trim(),
+      email:document.getElementById('emailInput').value.trim(),
+      message:document.getElementById('messageInput').value.trim()
+    };
+    try{
+      await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+                              body:JSON.stringify(payload)});
+      ['nameInput','emailInput','messageInput'].forEach(id=>document.getElementById(id).value='');
+      status.textContent='Message sent ✔'; status.className='text-center text-green-300';
+    }catch(err){
+      console.error(err);
+      status.textContent='Failed—try again.'; status.className='text-center text-red-300';
+    }
+  });
+</script>
+
+<!-- tiny util classes -->
+<style>
+  .nav-link     { @apply text-gray-700 hover:text-blue-600; }
+  .mobile-link  { @apply block px-4 py-2 text-gray-700 hover:bg-gray-100; }
+  .btn-close    { @apply mt-4 bg-blue-600 text-white px-4 py-2 rounded; }
+</style>
+</body>
+</html> 
