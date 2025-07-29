@@ -109,6 +109,7 @@
     .service-card {
       box-shadow: 0 20px 40px rgba(0,0,0,0.1);
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 1 !important;
     }
     
     .service-card:hover {
@@ -471,10 +472,10 @@
             <h3 class="text-3xl font-bold mb-4">Optica AI</h3>
             <p class="text-lg mb-4">AI-Powered Optical Design Software</p>
             <div class="space-y-2 text-sm">
-              <p>✨ Replacing Zemax with AI-driven lens design</p>
-              <p>🚀 ISRO-guided development</p>
-              <p>⚡ 90% faster design process</p>
-              <p>🧠 Trained on historical lens datasets</p>
+              <p>Replacing Zemax with AI-driven lens design</p>
+              <p>ISRO-guided development</p>
+              <p>90% faster design process</p>
+              <p>Trained on historical lens datasets</p>
             </div>
           </div>
         </div>
@@ -489,10 +490,10 @@
             <h3 class="text-3xl font-bold mb-4">Supply Chain Credit</h3>
             <p class="text-lg mb-4">AI-Powered Credit Assessment Platform</p>
             <div class="space-y-2 text-sm">
-              <p>🤖 90% automated credit decisions</p>
-              <p>⚡ 30-minute processing time</p>
-              <p>📊 Multi-API data integration</p>
-              <p>🔍 Real-time risk assessment</p>
+              <p>90% automated credit decisions</p>
+              <p>30-minute processing time</p>
+              <p>Multi-API data integration</p>
+              <p>Real-time risk assessment</p>
             </div>
           </div>
         </div>
@@ -507,10 +508,10 @@
             <h3 class="text-3xl font-bold mb-4">Risk Management System</h3>
             <p class="text-lg mb-4">Real-time Trading Risk Platform</p>
             <div class="space-y-2 text-sm">
-              <p>⚡ Real-time risk detection</p>
-              <p>📰 News intelligence integration</p>
-              <p>🚨 Multi-channel alerts</p>
-              <p>📊 Comprehensive analytics</p>
+              <p>Real-time risk detection</p>
+              <p>News intelligence integration</p>
+              <p>Multi-channel alerts</p>
+              <p>Comprehensive analytics</p>
             </div>
           </div>
         </div>
@@ -525,10 +526,10 @@
             <h3 class="text-3xl font-bold mb-4">AI Spiritual Assistant</h3>
             <p class="text-lg mb-4">Digital Guru Experience Platform</p>
             <div class="space-y-2 text-sm">
-              <p>🎤 Authentic voice cloning</p>
-              <p>📚 500+ video transcripts</p>
-              <p>🤖 Conversational AI guidance</p>
-              <p>📊 Spiritual analytics</p>
+              <p>Authentic voice cloning</p>
+              <p>500+ video transcripts</p>
+              <p>Conversational AI guidance</p>
+              <p>Spiritual analytics</p>
             </div>
           </div>
         </div>
@@ -543,10 +544,10 @@
             <h3 class="text-3xl font-bold mb-4">Go4Fresh Portal</h3>
             <p class="text-lg mb-4">AI-Powered Inventory Management</p>
             <div class="space-y-2 text-sm">
-              <p>🤖 AI demand prediction</p>
-              <p>👥 Role-based access control</p>
-              <p>📊 Real-time monitoring</p>
-              <p>🔍 Automated quality control</p>
+              <p>AI demand prediction</p>
+              <p>Role-based access control</p>
+              <p>Real-time monitoring</p>
+              <p>Automated quality control</p>
             </div>
           </div>
         </div>
@@ -561,10 +562,10 @@
             <h3 class="text-3xl font-bold mb-4">Sikkim Government Bot</h3>
             <p class="text-lg mb-4">AI-Powered Citizen Services</p>
             <div class="space-y-2 text-sm">
-              <p>🌍 Multilingual support</p>
-              <p>🚨 Emergency reporting</p>
-              <p>📋 Relief applications</p>
-              <p>🏨 Service bookings</p>
+              <p>Multilingual support</p>
+              <p>Emergency reporting</p>
+              <p>Relief applications</p>
+              <p>Service bookings</p>
             </div>
           </div>
         </div>
@@ -764,7 +765,9 @@
   gsap.from('.service-card', {
     scrollTrigger: {
       trigger: '.services-scroll-container',
-      start: 'top 80%'
+      start: 'top 80%',
+      end: 'bottom 20%',
+      toggleActions: 'play none none reverse'
     },
     opacity: 0,
     y: 100,
@@ -814,6 +817,14 @@
   /* Modals */
   function openModal(id){document.getElementById(id).style.display='flex';}
   function closeModal(id){document.getElementById(id).style.display='none';}
+
+  /* Ensure services are visible */
+  setTimeout(() => {
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    });
+  }, 1000);
 
   /* Contact-form → Google Sheet */
   const SCRIPT_URL='https://script.google.com/macros/s/AKfycbwbLM74KZryYxo5gwXBeSaYh2yqNG4aJeE5UIdIaz0W0nHreXqu7YpFTeXgSgyEmz6Qqw/exec';
