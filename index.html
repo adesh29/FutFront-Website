@@ -23,6 +23,202 @@
                    align-items:center;justify-content:center;}
     .service-modal-content{background:#fff;padding:2rem;border-radius:1rem;
                            max-width:600px;width:90%;}
+    
+    /* Crazy Animations */
+    .project-card {
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    }
+    
+    .floating-orb {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 70%, transparent 100%);
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .orb-1 {
+      width: 100px;
+      height: 100px;
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+    
+    .orb-2 {
+      width: 150px;
+      height: 150px;
+      top: 20%;
+      right: 15%;
+      animation-delay: 1s;
+    }
+    
+    .orb-3 {
+      width: 80px;
+      height: 80px;
+      bottom: 20%;
+      left: 20%;
+      animation-delay: 2s;
+    }
+    
+    .orb-4 {
+      width: 120px;
+      height: 120px;
+      bottom: 10%;
+      right: 10%;
+      animation-delay: 3s;
+    }
+    
+    .orb-5 {
+      width: 60px;
+      height: 60px;
+      top: 50%;
+      left: 50%;
+      animation-delay: 4s;
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.7;
+      }
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 1;
+      }
+    }
+    
+    /* Glitch effect for project titles */
+    .project-card h3 {
+      position: relative;
+    }
+    
+    .project-card:hover h3::before {
+      content: attr(data-text);
+      position: absolute;
+      left: -2px;
+      text-shadow: 2px 0 #ff0000;
+      top: 0;
+      color: #fff;
+      background: none;
+      clip: rect(44px, 450px, 56px, 0);
+      animation: glitch 0.3s infinite linear alternate-reverse;
+    }
+    
+    @keyframes glitch {
+      0% {
+        clip: rect(42px, 9999px, 44px, 0);
+        transform: skew(0.15deg);
+      }
+      5% {
+        clip: rect(12px, 9999px, 59px, 0);
+        transform: skew(0.25deg);
+      }
+      10% {
+        clip: rect(48px, 9999px, 29px, 0);
+        transform: skew(0.1deg);
+      }
+      15% {
+        clip: rect(42px, 9999px, 73px, 0);
+        transform: skew(0.4deg);
+      }
+      20% {
+        clip: rect(63px, 9999px, 27px, 0);
+        transform: skew(0.2deg);
+      }
+      25% {
+        clip: rect(34px, 9999px, 55px, 0);
+        transform: skew(0.3deg);
+      }
+      30% {
+        clip: rect(86px, 9999px, 73px, 0);
+        transform: skew(0.1deg);
+      }
+      35% {
+        clip: rect(20px, 9999px, 20px, 0);
+        transform: skew(0.5deg);
+      }
+      40% {
+        clip: rect(26px, 9999px, 60px, 0);
+        transform: skew(0.15deg);
+      }
+      45% {
+        clip: rect(25px, 9999px, 66px, 0);
+        transform: skew(0.25deg);
+      }
+      50% {
+        clip: rect(57px, 9999px, 98px, 0);
+        transform: skew(0.3deg);
+      }
+      55% {
+        clip: rect(5px, 9999px, 46px, 0);
+        transform: skew(0.2deg);
+      }
+      60% {
+        clip: rect(82px, 9999px, 31px, 0);
+        transform: skew(0.4deg);
+      }
+      65% {
+        clip: rect(54px, 9999px, 27px, 0);
+        transform: skew(0.1deg);
+      }
+      70% {
+        clip: rect(28px, 9999px, 99px, 0);
+        transform: skew(0.3deg);
+      }
+      75% {
+        clip: rect(99px, 9999px, 85px, 0);
+        transform: skew(0.25deg);
+      }
+      80% {
+        clip: rect(61px, 9999px, 30px, 0);
+        transform: skew(0.2deg);
+      }
+      85% {
+        clip: rect(66px, 9999px, 84px, 0);
+        transform: skew(0.4deg);
+      }
+      90% {
+        clip: rect(67px, 9999px, 84px, 0);
+        transform: skew(0.1deg);
+      }
+      95% {
+        clip: rect(91px, 9999px, 77px, 0);
+        transform: skew(0.3deg);
+      }
+      100% {
+        clip: rect(85px, 9999px, 40px, 0);
+        transform: skew(0.25deg);
+      }
+    }
+    
+    /* Particle effect */
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: particle-float 3s ease-in-out infinite;
+    }
+    
+    @keyframes particle-float {
+      0% {
+        transform: translateY(0) scale(0);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 
@@ -39,6 +235,7 @@
       <div class="hidden md:flex space-x-6">
         <a href="#home"    class="nav-link">Home</a>
         <a href="#services"class="nav-link">Services</a>
+        <a href="#projects"class="nav-link">Projects</a>
         <a href="#about"   class="nav-link">About Us</a>
         <a href="#demos"   class="nav-link">Demos</a>
         <a href="#contact" class="nav-link">Contact</a>
@@ -54,6 +251,7 @@
   <div id="mobile-menu" class="hidden md:hidden bg-white">
     <a href="#home"    class="mobile-link">Home</a>
     <a href="#services"class="mobile-link">Services</a>
+    <a href="#projects"class="mobile-link">Projects</a>
     <a href="#about"   class="mobile-link">About Us</a>
     <a href="#demos"   class="mobile-link">Demos</a>
     <a href="#contact" class="mobile-link">Contact</a>
@@ -154,8 +352,8 @@
 
     <div class="grid md:grid-cols-3 gap-10 mb-16">
       <!-- Adesh -->
-      <div class="bg-white rounded-xl p-8 shadow-lg">
-        <img src="adesh.jpg" alt="Adesh Bhavsar" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover">
+      <div class="bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+        <img src="adesh.jpeg" alt="Adesh Bhavsar" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover border-4 border-blue-200 hover:border-blue-400 transition-all duration-300">
         <h3 class="text-xl font-semibold text-center">Adesh Bhavsar</h3>
         <p class="text-center text-sm text-gray-600">Co-founder</p>
         <p class="mt-4 text-gray-700 text-sm">
@@ -163,8 +361,8 @@
         </p>
       </div>
       <!-- Ravi -->
-      <div class="bg-white rounded-xl p-8 shadow-lg">
-        <img src="ravi.jpg" alt="Ravi Kumar" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover">
+      <div class="bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+        <img src="ravi.jpg" alt="Ravi Kumar" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover border-4 border-blue-200 hover:border-blue-400 transition-all duration-300">
         <h3 class="text-xl font-semibold text-center">Ravi Kumar</h3>
         <p class="text-center text-sm text-gray-600">Co-founder</p>
         <p class="mt-4 text-gray-700 text-sm">
@@ -172,8 +370,8 @@
         </p>
       </div>
       <!-- Abhishek -->
-      <div class="bg-white rounded-xl p-8 shadow-lg">
-        <img src="abhishek.jpg" alt="Abhishek Malyan" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover">
+      <div class="bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+        <img src="abhishek.jpg" alt="Abhishek Malyan" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover border-4 border-blue-200 hover:border-blue-400 transition-all duration-300">
         <h3 class="text-xl font-semibold text-center">Abhishek Malyan</h3>
         <p class="text-center text-sm text-gray-600">Co-founder</p>
         <p class="mt-4 text-gray-700 text-sm">
@@ -195,6 +393,135 @@
         🔹 2027: Global presence across 3 continents<br>
         FutFront isn't just service-based—we co-create products that reshape industries.
       </p>
+    </div>
+  </div>
+</section>
+
+<!-- ███ Projects Showcase ███ -->
+<section id="projects" class="py-20 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0">
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+    <div class="floating-orb orb-3"></div>
+    <div class="floating-orb orb-4"></div>
+    <div class="floating-orb orb-5"></div>
+  </div>
+  
+  <div class="container mx-auto px-6 relative z-10">
+    <h2 class="text-5xl font-bold text-center mb-4 animate-pulse">🚀 Our Innovation Lab</h2>
+    <p class="text-xl text-center mb-16 text-blue-200">Where AI meets reality, and dreams become code</p>
+    
+    <div class="grid lg:grid-cols-2 gap-8 projects-grid">
+      
+      <!-- Optica AI -->
+      <div class="project-card group">
+        <div class="bg-gradient-to-br from-cyan-500 to-blue-600 p-8 rounded-2xl relative overflow-hidden">
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
+          <div class="relative z-10">
+            <div class="text-6xl mb-4 animate-bounce">🔬</div>
+            <h3 class="text-3xl font-bold mb-4">Optica AI</h3>
+            <p class="text-lg mb-4">AI-Powered Optical Design Software</p>
+            <div class="space-y-2 text-sm">
+              <p>✨ Replacing Zemax with AI-driven lens design</p>
+              <p>🚀 ISRO-guided development</p>
+              <p>⚡ 90% faster design process</p>
+              <p>🧠 Trained on historical lens datasets</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Supply Chain Credit -->
+      <div class="project-card group">
+        <div class="bg-gradient-to-br from-green-500 to-emerald-600 p-8 rounded-2xl relative overflow-hidden">
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
+          <div class="relative z-10">
+            <div class="text-6xl mb-4 animate-pulse">💰</div>
+            <h3 class="text-3xl font-bold mb-4">Supply Chain Credit</h3>
+            <p class="text-lg mb-4">AI-Powered Credit Assessment Platform</p>
+            <div class="space-y-2 text-sm">
+              <p>🤖 90% automated credit decisions</p>
+              <p>⚡ 30-minute processing time</p>
+              <p>📊 Multi-API data integration</p>
+              <p>🔍 Real-time risk assessment</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Risk Management System -->
+      <div class="project-card group">
+        <div class="bg-gradient-to-br from-red-500 to-pink-600 p-8 rounded-2xl relative overflow-hidden">
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
+          <div class="relative z-10">
+            <div class="text-6xl mb-4 animate-spin">🛡️</div>
+            <h3 class="text-3xl font-bold mb-4">Risk Management System</h3>
+            <p class="text-lg mb-4">Real-time Trading Risk Platform</p>
+            <div class="space-y-2 text-sm">
+              <p>⚡ Real-time risk detection</p>
+              <p>📰 News intelligence integration</p>
+              <p>🚨 Multi-channel alerts</p>
+              <p>📊 Comprehensive analytics</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Spiritual Assistant -->
+      <div class="project-card group">
+        <div class="bg-gradient-to-br from-purple-500 to-violet-600 p-8 rounded-2xl relative overflow-hidden">
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
+          <div class="relative z-10">
+            <div class="text-6xl mb-4 animate-pulse">🧘</div>
+            <h3 class="text-3xl font-bold mb-4">AI Spiritual Assistant</h3>
+            <p class="text-lg mb-4">Digital Guru Experience Platform</p>
+            <div class="space-y-2 text-sm">
+              <p>🎤 Authentic voice cloning</p>
+              <p>📚 500+ video transcripts</p>
+              <p>🤖 Conversational AI guidance</p>
+              <p>📊 Spiritual analytics</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Go4Fresh Portal -->
+      <div class="project-card group">
+        <div class="bg-gradient-to-br from-orange-500 to-yellow-600 p-8 rounded-2xl relative overflow-hidden">
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
+          <div class="relative z-10">
+            <div class="text-6xl mb-4 animate-bounce">📦</div>
+            <h3 class="text-3xl font-bold mb-4">Go4Fresh Portal</h3>
+            <p class="text-lg mb-4">AI-Powered Inventory Management</p>
+            <div class="space-y-2 text-sm">
+              <p>🤖 AI demand prediction</p>
+              <p>👥 Role-based access control</p>
+              <p>📊 Real-time monitoring</p>
+              <p>🔍 Automated quality control</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sikkim Government Bot -->
+      <div class="project-card group">
+        <div class="bg-gradient-to-br from-teal-500 to-cyan-600 p-8 rounded-2xl relative overflow-hidden">
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
+          <div class="relative z-10">
+            <div class="text-6xl mb-4 animate-pulse">🏛️</div>
+            <h3 class="text-3xl font-bold mb-4">Sikkim Government Bot</h3>
+            <p class="text-lg mb-4">AI-Powered Citizen Services</p>
+            <div class="space-y-2 text-sm">
+              <p>🌍 Multilingual support</p>
+              <p>🚨 Emergency reporting</p>
+              <p>📋 Relief applications</p>
+              <p>🏨 Service bookings</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -281,8 +608,41 @@
 
   /* GSAP fade-in */
   gsap.registerPlugin(ScrollTrigger);
-  gsap.utils.toArray('.services-grid > div, .demos-grid > div').forEach(el=>{
+  gsap.utils.toArray('.services-grid > div, .demos-grid > div, .projects-grid > div').forEach(el=>{
     gsap.from(el,{scrollTrigger:{trigger:el,start:'top 80%'},opacity:0,y:50,duration:.8});
+  });
+
+  /* Particle effect for projects section */
+  function createParticle() {
+    const projectsSection = document.getElementById('projects');
+    if (!projectsSection) return;
+    
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.width = particle.style.height = Math.random() * 4 + 2 + 'px';
+    particle.style.animationDuration = Math.random() * 3 + 2 + 's';
+    
+    projectsSection.appendChild(particle);
+    
+    setTimeout(() => {
+      particle.remove();
+    }, 5000);
+  }
+  
+  setInterval(createParticle, 300);
+
+  /* Crazy hover effects for project cards */
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-15px) rotateX(10deg) rotateY(10deg) scale(1.05)';
+      this.style.boxShadow = '0 30px 60px rgba(0,0,0,0.4)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0) rotateX(0) rotateY(0) scale(1)';
+      this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
+    });
   });
 
   /* Modals */
