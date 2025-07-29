@@ -13,16 +13,72 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-    body{font-family:'Inter',sans-serif;scroll-behavior:smooth;}
-    .gradient-bg{background:linear-gradient(135deg,#3b82f6 0%,#2563eb 100%);}
-    .service-card{transition:.3s;}
-    .service-card:hover{transform:scale(1.05);box-shadow:0 10px 25px rgba(0,0,0,.1);}
-    .service-modal{position:fixed;top:0;left:0;width:100%;height:100%;
-                   background:rgba(0,0,0,.7);display:none;z-index:1000;
-                   align-items:center;justify-content:center;}
-    .service-modal-content{background:#fff;padding:2rem;border-radius:1rem;
-                           max-width:600px;width:90%;}
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+    
+    :root {
+      /* Primary Brand Colors from your logo */
+      --primary-purple: #6366f1;      /* Main purple from cube */
+      --deep-purple: #4f46e5;         /* Darker purple */
+      --light-purple: #a855f7;        /* Lighter purple */
+      --accent-orange: #f97316;       /* Orange from flower */
+      --warm-orange: #ea580c;         /* Darker orange */
+      --light-orange: #fb923c;        /* Lighter orange */
+      
+      /* Neutral Colors */
+      --dark-gray: #1f2937;
+      --medium-gray: #6b7280;
+      --light-gray: #f3f4f6;
+      --white: #ffffff;
+      
+      /* Gradients */
+      --primary-gradient: linear-gradient(135deg, var(--primary-purple) 0%, var(--deep-purple) 100%);
+      --accent-gradient: linear-gradient(135deg, var(--accent-orange) 0%, var(--warm-orange) 100%);
+      --hero-gradient: linear-gradient(135deg, var(--deep-purple) 0%, var(--primary-purple) 50%, var(--light-purple) 100%);
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      color: var(--dark-gray);
+    }
+    
+    .gradient-bg {
+      background: var(--hero-gradient);
+    }
+    
+    .service-card {
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(99, 102, 241, 0.15);
+    }
+    
+    .service-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(31, 41, 55, 0.8);
+      backdrop-blur: 8px;
+      display: none;
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .service-modal-content {
+      background: var(--white);
+      padding: 3rem;
+      border-radius: 1.5rem;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.1);
+    }
     
     /* Hide scrollbar for horizontal scroll */
     .scrollbar-hide {
@@ -265,15 +321,15 @@
   <div class="max-w-7xl mx-auto px-2">
     <div class="flex justify-between items-center py-4">
       <div class="flex items-center">
-        <img src="FutFrontlogo.png" alt="FutFront Logo" class="w-6 h-6 mr-3">
-        <span class="text-2xl font-bold text-blue-600">FutFront</span>
+        <img src="FutFrontlogo.png" alt="FutFront Logo" class="w-8 h-8 mr-3">
+        <span class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-orange-500 bg-clip-text text-transparent">FutFront</span>
       </div>
       <div class="hidden md:flex space-x-6">
-        <a href="#home"    class="nav-link">Home</a>
-        <a href="#services"class="nav-link">Services</a>
-        <a href="#projects"class="nav-link">Projects</a>
-        <a href="#about"   class="nav-link">About Us</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#home"    class="nav-link hover:text-purple-600 transition-colors duration-300">Home</a>
+        <a href="#services"class="nav-link hover:text-purple-600 transition-colors duration-300">Services</a>
+        <a href="#projects"class="nav-link hover:text-purple-600 transition-colors duration-300">Projects</a>
+        <a href="#about"   class="nav-link hover:text-purple-600 transition-colors duration-300">About Us</a>
+        <a href="#contact" class="nav-link hover:text-purple-600 transition-colors duration-300">Contact</a>
       </div>
       <button id="menu-btn" class="md:hidden focus:outline-none">
         <svg class="w-6 h-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -295,29 +351,24 @@
 <!-- ███ Hero ███ -->
 <section id="home" class="h-screen flex items-center gradient-bg text-white relative overflow-hidden">
   <div class="container mx-auto px-6 z-10">
-    <div class="hero-content opacity-0 transform translate-y-20 transition-all duration-1000">
-      <h1 class="text-6xl md:text-7xl font-bold mb-8 leading-tight">
-        Beyond Services—<br>
-        <span class="text-blue-200">We Engineer, Advise & Analyze</span>
-      </h1>
-      <p class="text-2xl md:text-3xl mb-12 text-blue-100 leading-relaxed max-w-4xl">
-        From zero-to-one product builds to enterprise-scale analytics, FutFront
-        is your end-to-end tech partner.
-      </p>
-    </div>
+          <div class="hero-content opacity-0 transform translate-y-20 transition-all duration-1000">
+        <h1 class="text-6xl md:text-7xl font-bold mb-8 leading-tight">
+          Beyond Services—<br>
+          <span class="text-orange-300">We Engineer, Advise & Analyze</span>
+        </h1>
+        <p class="text-2xl md:text-3xl mb-12 text-purple-100 leading-relaxed max-w-4xl">
+          From zero-to-one product builds to enterprise-scale analytics, FutFront
+          is your end-to-end tech partner.
+        </p>
+      </div>
   </div>
   <!-- Premium background elements -->
   <div class="absolute inset-0">
-    <div class="absolute w-96 h-96 bg-blue-400/20 rounded-full blur-3xl top-1/4 -left-20 animate-pulse"></div>
-    <div class="absolute w-[500px] h-[500px] bg-indigo-400/15 rounded-full blur-3xl bottom-1/4 -right-20 animate-pulse delay-1000"></div>
-    <div class="absolute w-64 h-64 bg-purple-400/10 rounded-full blur-3xl top-1/2 left-1/2 animate-pulse delay-500"></div>
+    <div class="absolute w-96 h-96 bg-purple-400/20 rounded-full blur-3xl top-1/4 -left-20 animate-pulse"></div>
+    <div class="absolute w-[500px] h-[500px] bg-orange-400/15 rounded-full blur-3xl bottom-1/4 -right-20 animate-pulse delay-1000"></div>
+    <div class="absolute w-64 h-64 bg-purple-300/10 rounded-full blur-3xl top-1/2 left-1/2 animate-pulse delay-500"></div>
   </div>
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-    <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-      <div class="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
-    </div>
-  </div>
+
 </section>
 
 <!-- ███ Services ███ -->
@@ -332,23 +383,23 @@
       <div class="flex gap-8 services-grid overflow-x-auto pb-8 scrollbar-hide">
 
       <!-- AI CX -->
-      <div class="service-card bg-gradient-to-br from-blue-50 to-indigo-50 p-12 rounded-3xl shadow-xl border border-blue-100 cursor-pointer min-w-[400px] transform hover:scale-105 transition-all duration-500"
+      <div class="service-card bg-gradient-to-br from-purple-50 to-indigo-50 p-12 rounded-3xl shadow-xl border border-purple-100 cursor-pointer min-w-[400px] transform hover:scale-105 transition-all duration-500"
            onclick="openModal('cx-modal')">
-        <div class="text-7xl text-blue-600 mb-8">🤖</div>
+        <div class="text-7xl text-purple-600 mb-8">🤖</div>
         <h3 class="text-3xl font-bold mb-6 text-gray-900">AI-Driven CX</h3>
         <p class="text-lg text-gray-700 leading-relaxed">Hyper-personalised, always-on customer journeys that adapt and evolve with your users.</p>
       </div>
 
       <!-- Software Solutions -->
-      <div class="service-card bg-gradient-to-br from-green-50 to-emerald-50 p-12 rounded-3xl shadow-xl border border-green-100 cursor-pointer min-w-[400px] transform hover:scale-105 transition-all duration-500"
+      <div class="service-card bg-gradient-to-br from-orange-50 to-red-50 p-12 rounded-3xl shadow-xl border border-orange-100 cursor-pointer min-w-[400px] transform hover:scale-105 transition-all duration-500"
            onclick="openModal('software-modal')">
-        <div class="text-7xl text-green-600 mb-8">💻</div>
+        <div class="text-7xl text-orange-600 mb-8">💻</div>
         <h3 class="text-3xl font-bold mb-6 text-gray-900">Software Solutions</h3>
         <p class="text-lg text-gray-700 leading-relaxed">Full-stack engineering—from architecture to app stores, built for scale and performance.</p>
       </div>
 
       <!-- Advisory & Analytics -->
-      <div class="service-card bg-gradient-to-br from-purple-50 to-violet-50 p-12 rounded-3xl shadow-xl border border-purple-100 cursor-pointer min-w-[400px] transform hover:scale-105 transition-all duration-500"
+      <div class="service-card bg-gradient-to-br from-purple-50 to-pink-50 p-12 rounded-3xl shadow-xl border border-purple-100 cursor-pointer min-w-[400px] transform hover:scale-105 transition-all duration-500"
            onclick="openModal('advisory-modal')">
         <div class="text-7xl text-purple-600 mb-8">🧭</div>
         <h3 class="text-3xl font-bold mb-6 text-gray-900">Advisory & Analytics</h3>
@@ -361,6 +412,7 @@
         <div class="text-7xl text-orange-600 mb-8">📊</div>
         <h3 class="text-3xl font-bold mb-6 text-gray-900">Competitive Intelligence</h3>
         <p class="text-lg text-gray-700 leading-relaxed">Out-smart rivals with live market signals and predictive insights.</p>
+      </div>
       </div>
     </div>
   </div>
@@ -790,9 +842,9 @@
 
 <!-- tiny util classes -->
 <style>
-  .nav-link     { @apply text-gray-700 hover:text-blue-600; }
-  .mobile-link  { @apply block px-4 py-2 text-gray-700 hover:bg-gray-100; }
-  .btn-close    { @apply mt-4 bg-blue-600 text-white px-4 py-2 rounded; }
+  .nav-link     { @apply text-gray-700 hover:text-purple-600 transition-colors duration-300; }
+  .mobile-link  { @apply block px-4 py-2 text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors duration-300; }
+  .btn-close    { @apply mt-4 bg-gradient-to-r from-purple-600 to-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-orange-600 transition-all duration-300; }
 </style>
 </body>
 </html> 
