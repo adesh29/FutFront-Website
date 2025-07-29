@@ -94,14 +94,21 @@
     .services-scroll-wrapper {
       overflow: hidden;
       position: relative;
+      height: auto;
     }
     
     .services-grid {
       animation: scroll-services 60s linear infinite;
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       width: max-content;
       will-change: transform;
+      align-items: stretch;
+    }
+    
+    .service-card {
+      flex-shrink: 0;
+      height: auto;
     }
     
     @keyframes scroll-services {
