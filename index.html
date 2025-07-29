@@ -84,30 +84,16 @@
     .scrollbar-hide {
       -ms-overflow-style: none;
       scrollbar-width: none;
+      scroll-behavior: auto;
     }
     .scrollbar-hide::-webkit-scrollbar {
       display: none;
     }
     
-    /* Enhanced horizontal scrolling for services */
+    /* Prevent auto-scroll on services */
     .services-grid {
-      scroll-behavior: smooth;
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
-    
-    .services-grid::-webkit-scrollbar {
-      height: 8px;
-    }
-    
-    .services-grid::-webkit-scrollbar-track {
-      background: rgba(0,0,0,0.1);
-      border-radius: 4px;
-    }
-    
-    .services-grid::-webkit-scrollbar-thumb {
-      background: linear-gradient(90deg, #8b5cf6, #f97316);
-      border-radius: 4px;
+      scroll-behavior: auto;
+      scroll-snap-type: none;
     }
     
     /* Premium animations */
@@ -394,19 +380,18 @@
 </section>
 
 <!-- ███ Services ███ -->
-<section id="services" class="h-screen bg-white relative overflow-hidden flex items-center">
-  <div class="container mx-auto px-6 w-full">
-    <div class="services-header opacity-0 transform translate-y-20 transition-all duration-1000 mb-20">
+<section id="services" class="py-32 bg-white relative overflow-hidden">
+  <div class="container mx-auto px-6">
+    <div class="services-header opacity-0 transform translate-y-20 transition-all duration-1000">
       <h2 class="text-6xl md:text-7xl font-bold text-center mb-8 text-gray-900">What We Deliver</h2>
       <p class="text-xl text-center text-gray-600 max-w-3xl mx-auto">Innovation at every touchpoint, from concept to deployment</p>
     </div>
     
-    <div class="services-scroll-container">
-      <div class="flex gap-8 services-grid overflow-x-auto pb-8 scrollbar-hide" style="scroll-snap-type: x mandatory;">
+    <div class="services-scroll-container mt-20">
+      <div class="flex gap-8 services-grid overflow-x-auto pb-8 scrollbar-hide" style="scroll-behavior: auto;">
 
       <!-- AI CX -->
       <div class="service-card bg-gradient-to-br from-purple-50 to-indigo-50 p-12 rounded-3xl shadow-xl border border-purple-100 cursor-pointer min-w-[400px] transform hover:scale-105 transition-all duration-500"
-           style="scroll-snap-align: start;"
            onclick="openModal('cx-modal')">
         <div class="text-7xl text-purple-600 mb-8">🤖</div>
         <h3 class="text-3xl font-bold mb-6 text-gray-900">AI-Driven CX</h3>
@@ -415,7 +400,6 @@
 
       <!-- Software Solutions -->
       <div class="service-card bg-gradient-to-br from-orange-50 to-red-50 p-12 rounded-3xl shadow-xl border border-orange-100 cursor-pointer min-w-[400px] transform hover:scale-105 transition-all duration-500"
-           style="scroll-snap-align: start;"
            onclick="openModal('software-modal')">
         <div class="text-7xl text-orange-600 mb-8">💻</div>
         <h3 class="text-3xl font-bold mb-6 text-gray-900">Software Solutions</h3>
@@ -424,7 +408,6 @@
 
       <!-- Advisory & Analytics -->
       <div class="service-card bg-gradient-to-br from-purple-50 to-pink-50 p-12 rounded-3xl shadow-xl border border-purple-100 cursor-pointer min-w-[400px] transform hover:scale-105 transition-all duration-500"
-           style="scroll-snap-align: start;"
            onclick="openModal('advisory-modal')">
         <div class="text-7xl text-purple-600 mb-8">🧭</div>
         <h3 class="text-3xl font-bold mb-6 text-gray-900">Advisory & Analytics</h3>
@@ -433,7 +416,6 @@
 
       <!-- Competitive Intelligence -->
       <div class="service-card bg-gradient-to-br from-orange-50 to-yellow-50 p-12 rounded-3xl shadow-xl border border-orange-100 cursor-pointer min-w-[400px] transform hover:scale-105 transition-all duration-500"
-           style="scroll-snap-align: start;"
            onclick="openModal('ci-modal')">
         <div class="text-7xl text-orange-600 mb-8">📊</div>
         <h3 class="text-3xl font-bold mb-6 text-gray-900">Competitive Intelligence</h3>
@@ -686,23 +668,7 @@
       </div>
     </div>
 
-    <div class="max-w-4xl mx-auto">
-      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-12 rounded-3xl shadow-xl border border-blue-100 transform hover:scale-105 transition-all duration-500">
-        <div class="text-center mb-8">
-          <div class="text-6xl mb-4 animate-pulse">🎯</div>
-          <h3 class="text-4xl font-bold text-gray-800 mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Our Mission</h3>
-        </div>
-        <p class="text-xl text-gray-700 leading-relaxed text-center">
-          Enable organisations to <span class="font-semibold text-blue-600">leapfrog from idea to impact</span>—through craftsmanship in software,
-          obsessively human-centric design, and evidence-driven advisory.
-        </p>
-        <div class="mt-8 text-center">
-          <p class="text-lg text-gray-600 italic">
-            "We don't just build software—we engineer solutions that reshape industries."
-          </p>
-        </div>
-      </div>
-    </div>
+
   </div>
 </section>
 
@@ -850,39 +816,6 @@
       card.style.transform = 'translateY(0)';
     });
   }, 1000);
-
-  /* Enhanced horizontal scrolling for services */
-  const servicesGrid = document.querySelector('.services-grid');
-  if (servicesGrid) {
-    let isScrolling = false;
-    
-    servicesGrid.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      if (!isScrolling) {
-        isScrolling = true;
-        const scrollAmount = e.deltaY > 0 ? 400 : -400;
-        servicesGrid.scrollBy({
-          left: scrollAmount,
-          behavior: 'smooth'
-        });
-        setTimeout(() => {
-          isScrolling = false;
-        }, 500);
-      }
-    });
-    
-    // Add keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-        e.preventDefault();
-        const scrollAmount = e.key === 'ArrowRight' ? 400 : -400;
-        servicesGrid.scrollBy({
-          left: scrollAmount,
-          behavior: 'smooth'
-        });
-      }
-    });
-  }
 
   /* Contact-form → Google Sheet */
   const SCRIPT_URL='https://script.google.com/macros/s/AKfycbwbLM74KZryYxo5gwXBeSaYh2yqNG4aJeE5UIdIaz0W0nHreXqu7YpFTeXgSgyEmz6Qqw/exec';
