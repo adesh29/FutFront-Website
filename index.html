@@ -24,6 +24,42 @@
     .service-modal-content{background:#fff;padding:2rem;border-radius:1rem;
                            max-width:600px;width:90%;}
     
+    /* Hide scrollbar for horizontal scroll */
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    
+    /* Premium animations */
+    .hero-content.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .services-header.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Smooth scrolling for premium feel */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Premium card shadows */
+    .service-card {
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .service-card:hover {
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+      transform: translateY(-10px) scale(1.02);
+    }
+    
     /* Crazy Animations */
     .project-card {
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -225,7 +261,7 @@
 <body class="bg-gray-50 text-gray-800">
 
 <!-- ███ Navigation ███ -->
-<nav class="bg-white shadow-lg sticky top-0 z-50">
+<nav id="navbar" class="bg-white/90 backdrop-blur-md shadow-lg fixed top-0 w-full z-50 transform -translate-y-full transition-transform duration-700">
   <div class="max-w-7xl mx-auto px-2">
     <div class="flex justify-between items-center py-4">
       <div class="flex items-center">
@@ -237,7 +273,6 @@
         <a href="#services"class="nav-link">Services</a>
         <a href="#projects"class="nav-link">Projects</a>
         <a href="#about"   class="nav-link">About Us</a>
-        <a href="#demos"   class="nav-link">Demos</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
       <button id="menu-btn" class="md:hidden focus:outline-none">
@@ -253,68 +288,79 @@
     <a href="#services"class="mobile-link">Services</a>
     <a href="#projects"class="mobile-link">Projects</a>
     <a href="#about"   class="mobile-link">About Us</a>
-    <a href="#demos"   class="mobile-link">Demos</a>
     <a href="#contact" class="mobile-link">Contact</a>
   </div>
 </nav>
 
 <!-- ███ Hero ███ -->
-<section id="home" class="min-h-[85vh] flex items-center gradient-bg text-white relative overflow-hidden">
+<section id="home" class="h-screen flex items-center gradient-bg text-white relative overflow-hidden">
   <div class="container mx-auto px-6 z-10">
-    <h1 class="text-5xl font-bold mb-6 animate__animated animate__fadeInUp">
-      Beyond Services—We Engineer, Advise & Analyze
-    </h1>
-    <p class="text-xl mb-8 animate__animated animate__fadeInUp animate__delay-1s">
-      From zero-to-one product builds to enterprise-scale analytics, FutFront
-      is your end-to-end tech partner.
-    </p>
-    <a href="#services" class="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-gray-100 transition animate__animated animate__fadeInUp animate__delay-2s">
-      Explore Our Edge
-    </a>
+    <div class="hero-content opacity-0 transform translate-y-20 transition-all duration-1000">
+      <h1 class="text-6xl md:text-7xl font-bold mb-8 leading-tight">
+        Beyond Services—<br>
+        <span class="text-blue-200">We Engineer, Advise & Analyze</span>
+      </h1>
+      <p class="text-2xl md:text-3xl mb-12 text-blue-100 leading-relaxed max-w-4xl">
+        From zero-to-one product builds to enterprise-scale analytics, FutFront
+        is your end-to-end tech partner.
+      </p>
+    </div>
   </div>
-  <!-- blurred blobs -->
-  <div class="absolute inset-0 opacity-20">
-    <div class="absolute w-80 h-80 bg-blue-500 rounded-full blur-3xl top-1/4 -left-20"></div>
-    <div class="absolute w-96 h-96 bg-indigo-500 rounded-full blur-3xl bottom-1/4 -right-20"></div>
+  <!-- Premium background elements -->
+  <div class="absolute inset-0">
+    <div class="absolute w-96 h-96 bg-blue-400/20 rounded-full blur-3xl top-1/4 -left-20 animate-pulse"></div>
+    <div class="absolute w-[500px] h-[500px] bg-indigo-400/15 rounded-full blur-3xl bottom-1/4 -right-20 animate-pulse delay-1000"></div>
+    <div class="absolute w-64 h-64 bg-purple-400/10 rounded-full blur-3xl top-1/2 left-1/2 animate-pulse delay-500"></div>
+  </div>
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+      <div class="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
+    </div>
   </div>
 </section>
 
 <!-- ███ Services ███ -->
-<section id="services" class="py-20 bg-white">
+<section id="services" class="py-32 bg-white relative overflow-hidden">
   <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-bold text-center mb-16">What We Deliver</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 services-grid">
+    <div class="services-header opacity-0 transform translate-y-20 transition-all duration-1000">
+      <h2 class="text-6xl md:text-7xl font-bold text-center mb-8 text-gray-900">What We Deliver</h2>
+      <p class="text-xl text-center text-gray-600 max-w-3xl mx-auto">Innovation at every touchpoint, from concept to deployment</p>
+    </div>
+    
+    <div class="services-scroll-container mt-20">
+      <div class="flex gap-8 services-grid overflow-x-auto pb-8 scrollbar-hide">
 
       <!-- AI CX -->
-      <div class="service-card bg-gray-100 p-8 rounded-xl shadow-lg cursor-pointer"
+      <div class="service-card bg-gradient-to-br from-blue-50 to-indigo-50 p-12 rounded-3xl shadow-xl border border-blue-100 cursor-pointer min-w-[400px] transform hover:scale-105 transition-all duration-500"
            onclick="openModal('cx-modal')">
-        <div class="text-5xl text-blue-600 mb-6">🤖</div>
-        <h3 class="text-2xl font-semibold mb-4">AI-Driven CX</h3>
-        <p>Hyper-personalised, always-on customer journeys.</p>
+        <div class="text-7xl text-blue-600 mb-8">🤖</div>
+        <h3 class="text-3xl font-bold mb-6 text-gray-900">AI-Driven CX</h3>
+        <p class="text-lg text-gray-700 leading-relaxed">Hyper-personalised, always-on customer journeys that adapt and evolve with your users.</p>
       </div>
 
       <!-- Software Solutions -->
-      <div class="service-card bg-gray-100 p-8 rounded-xl shadow-lg cursor-pointer"
+      <div class="service-card bg-gradient-to-br from-green-50 to-emerald-50 p-12 rounded-3xl shadow-xl border border-green-100 cursor-pointer min-w-[400px] transform hover:scale-105 transition-all duration-500"
            onclick="openModal('software-modal')">
-        <div class="text-5xl text-blue-600 mb-6">💻</div>
-        <h3 class="text-2xl font-semibold mb-4">Software Solutions</h3>
-        <p>Full-stack engineering—from architecture to app stores.</p>
+        <div class="text-7xl text-green-600 mb-8">💻</div>
+        <h3 class="text-3xl font-bold mb-6 text-gray-900">Software Solutions</h3>
+        <p class="text-lg text-gray-700 leading-relaxed">Full-stack engineering—from architecture to app stores, built for scale and performance.</p>
       </div>
 
       <!-- Advisory & Analytics -->
-      <div class="service-card bg-gray-100 p-8 rounded-xl shadow-lg cursor-pointer"
+      <div class="service-card bg-gradient-to-br from-purple-50 to-violet-50 p-12 rounded-3xl shadow-xl border border-purple-100 cursor-pointer min-w-[400px] transform hover:scale-105 transition-all duration-500"
            onclick="openModal('advisory-modal')">
-        <div class="text-5xl text-blue-600 mb-6">🧭</div>
-        <h3 class="text-2xl font-semibold mb-4">Advisory & Analytics</h3>
-        <p>Data-backed strategy to de-risk, scale and optimise.</p>
+        <div class="text-7xl text-purple-600 mb-8">🧭</div>
+        <h3 class="text-3xl font-bold mb-6 text-gray-900">Advisory & Analytics</h3>
+        <p class="text-lg text-gray-700 leading-relaxed">Data-backed strategy to de-risk, scale and optimise every business decision.</p>
       </div>
 
       <!-- Competitive Intelligence -->
-      <div class="service-card bg-gray-100 p-8 rounded-xl shadow-lg cursor-pointer"
+      <div class="service-card bg-gradient-to-br from-orange-50 to-yellow-50 p-12 rounded-3xl shadow-xl border border-orange-100 cursor-pointer min-w-[400px] transform hover:scale-105 transition-all duration-500"
            onclick="openModal('ci-modal')">
-        <div class="text-5xl text-blue-600 mb-6">📊</div>
-        <h3 class="text-2xl font-semibold mb-4">Competitive Intelligence</h3>
-        <p>Out-smart rivals with live market signals.</p>
+        <div class="text-7xl text-orange-600 mb-8">📊</div>
+        <h3 class="text-3xl font-bold mb-6 text-gray-900">Competitive Intelligence</h3>
+        <p class="text-lg text-gray-700 leading-relaxed">Out-smart rivals with live market signals and predictive insights.</p>
       </div>
     </div>
   </div>
@@ -345,60 +391,7 @@
      delivered as battle-ready dashboards.</p>
   <button onclick="closeModal('ci-modal')" class="btn-close">Close</button></div></div>
 
-<!-- ███ About Us ███ -->
-<section id="about" class="py-20 bg-gray-50">
-  <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-bold text-center mb-16">Who We Are</h2>
 
-    <div class="grid md:grid-cols-3 gap-10 mb-16">
-      <!-- Adesh -->
-      <div class="bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
-        <img src="adesh.jpeg" alt="Adesh Bhavsar" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover border-4 border-blue-200 hover:border-blue-400 transition-all duration-300">
-        <h3 class="text-xl font-semibold text-center">Adesh Bhavsar</h3>
-        <p class="text-center text-sm text-gray-600">Co-founder</p>
-        <p class="mt-4 text-gray-700 text-sm">
-          Turns big-bang ideas into shipping products. Ex-NBFC, IIT-B alum, passionate about marrying finance with deep tech.
-        </p>
-      </div>
-      <!-- Ravi -->
-      <div class="bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
-        <img src="ravi.jpg" alt="Ravi Kumar" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover border-4 border-blue-200 hover:border-blue-400 transition-all duration-300" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDgiIGN5PSI0OCIgcj0iNDgiIGZpbGw9IiM0Njg1RjEiLz4KPHN2ZyB4PSIyNCIgeT0iMjQiIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xMiAxMkMxNC4yMDkxIDEyIDE2IDEwLjIwOTEgMTYgOEMxNiA1Ljc5MDg2IDE0LjIwOTEgNCAxMiA0QzkuNzkwODYgNCA4IDUuNzkwODYgOCA4QzggMTAuMjA5MSA5Ljc5MDg2IDEyIDEyIDEyWk0xMiAxNEM5LjMzIDE0IDUgMTUuMzQgNSAxOFYyMEgxOVYxOEMxOSAxNS4zNCAxNC42NyAxNCAxMiAxNFoiLz4KPC9zdmc+Cjwvc3ZnPgo='">
-        <h3 class="text-xl font-semibold text-center">Ravi Kumar</h3>
-        <p class="text-center text-sm text-gray-600">Co-founder</p>
-        <p class="mt-4 text-gray-700 text-sm">
-          Full-stack polyglot who scales systems to millions of users. Loves clean architecture and caffeinated code reviews.
-        </p>
-      </div>
-      <!-- Abhishek -->
-      <div class="bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
-        <img src="abhishek.jpg" alt="Abhishek Malyan" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover border-4 border-blue-200 hover:border-blue-400 transition-all duration-300" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDgiIGN5PSI0OCIgcj0iNDgiIGZpbGw9IiM0Njg1RjEiLz4KPHN2ZyB4PSIyNCIgeT0iMjQiIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xMiAxMkMxNC4yMDkxIDEyIDE2IDEwLjIwOTEgMTYgOEMxNiA1Ljc5MDg2IDE0LjIwOTEgNCAxMiA0QzkuNzkwODYgNCA4IDUuNzkwODYgOCA4QzggMTAuMjA5MSA5Ljc5MDg2IDEyIDEyIDEyWk0xMiAxNEM5LjMzIDE0IDUgMTUuMzQgNSAxOFYyMEgxOVYxOEMxOSAxNS4zNCAxNC42NyAxNCAxMiAxNFoiLz4KPC9zdmc+Cjwvc3ZnPgo='">
-        <h3 class="text-xl font-semibold text-center">Abhishek Malyan</h3>
-        <p class="text-center text-sm text-gray-600">Co-founder</p>
-        <p class="mt-4 text-gray-700 text-sm">
-          Puts numbers to work—ML, BI dashboards, and actionable insights that power board-room decisions.
-        </p>
-      </div>
-    </div>
-
-    <div class="max-w-4xl mx-auto">
-      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-12 rounded-3xl shadow-xl border border-blue-100 transform hover:scale-105 transition-all duration-500">
-        <div class="text-center mb-8">
-          <div class="text-6xl mb-4 animate-pulse">🎯</div>
-          <h3 class="text-4xl font-bold text-gray-800 mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Our Mission</h3>
-        </div>
-        <p class="text-xl text-gray-700 leading-relaxed text-center">
-          Enable organisations to <span class="font-semibold text-blue-600">leapfrog from idea to impact</span>—through craftsmanship in software,
-          obsessively human-centric design, and evidence-driven advisory.
-        </p>
-        <div class="mt-8 text-center">
-          <p class="text-lg text-gray-600 italic">
-            "We don't just build software—we engineer solutions that reshape industries."
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ███ Projects Showcase ███ -->
 <section id="projects" class="py-20 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden min-h-screen">
@@ -458,7 +451,7 @@
         <div class="bg-gradient-to-br from-red-500 to-pink-600 p-8 rounded-2xl relative overflow-hidden">
           <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
           <div class="relative z-10">
-            <div class="text-6xl mb-4 animate-spin">🛡️</div>
+            <div class="text-6xl mb-4">🛡️</div>
             <h3 class="text-3xl font-bold mb-4">Risk Management System</h3>
             <p class="text-lg mb-4">Real-time Trading Risk Platform</p>
             <div class="space-y-2 text-sm">
@@ -525,41 +518,111 @@
         </div>
       </div>
 
+      <!-- Product Demos Section -->
+      <div class="col-span-full mt-16">
+        <h3 class="text-4xl font-bold text-center mb-12 text-blue-200">🎬 Live Product Demos</h3>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Demo 1 -->
+          <div class="project-card group">
+            <div class="bg-gradient-to-br from-red-500 to-orange-600 p-6 rounded-2xl relative overflow-hidden">
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
+              <div class="relative z-10">
+                <div class="aspect-video bg-black/30 mb-4 rounded-lg overflow-hidden">
+                  <iframe class="w-full h-full rounded-lg"
+                          src="https://www.youtube.com/embed/RU1xcT3lPlY" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <h3 class="text-2xl font-bold mb-2">Competitive Intelligence</h3>
+                <p class="text-sm">Watch real-time market insight in action.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Demo 2 -->
+          <div class="project-card group">
+            <div class="bg-gradient-to-br from-blue-500 to-cyan-600 p-6 rounded-2xl relative overflow-hidden">
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
+              <div class="relative z-10">
+                <div class="aspect-video bg-black/30 mb-4 rounded-lg overflow-hidden">
+                  <iframe class="w-full h-full rounded-lg"
+                          src="https://www.youtube.com/embed/WM9nvMdK99A" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <h3 class="text-2xl font-bold mb-2">Inventory Management</h3>
+                <p class="text-sm">Predictive stock optimisation demo.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Demo 3 -->
+          <div class="project-card group">
+            <div class="bg-gradient-to-br from-purple-500 to-pink-600 p-6 rounded-2xl relative overflow-hidden">
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500"></div>
+              <div class="relative z-10">
+                <div class="aspect-video bg-black/30 mb-4 rounded-lg overflow-hidden">
+                  <iframe class="w-full h-full rounded-lg"
+                          src="https://www.youtube.com/embed/pF1FvUyrvWI" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <h3 class="text-2xl font-bold mb-2">Custom AI Solution</h3>
+                <p class="text-sm">Tailored AI from blank page to production.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ███ Demos ███ -->
-<section id="demos" class="py-20 bg-white">
+<!-- ███ About Us ███ -->
+<section id="about" class="py-20 bg-gray-50">
   <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-bold text-center mb-16">Product Demos</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 demos-grid">
-      <!-- Demo 1 -->
-      <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
-        <div class="aspect-video bg-gray-300 mb-4 rounded-lg">
-          <iframe class="w-full h-full rounded-lg"
-                  src="https://www.youtube.com/embed/RU1xcT3lPlY" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Competitive Intelligence</h3>
-        <p>Watch real-time market insight in action.</p>
+    <h2 class="text-4xl font-bold text-center mb-16">Who We Are</h2>
+
+    <div class="grid md:grid-cols-3 gap-10 mb-16">
+      <!-- Adesh -->
+      <div class="bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+        <img src="adesh.jpeg" alt="Adesh Bhavsar" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover border-4 border-blue-200 hover:border-blue-400 transition-all duration-300">
+        <h3 class="text-xl font-semibold text-center">Adesh Bhavsar</h3>
+        <p class="text-center text-sm text-gray-600">Co-founder</p>
+        <p class="mt-4 text-gray-700 text-sm">
+          Turns big-bang ideas into shipping products. Ex-NBFC, IIT-B alum, passionate about marrying finance with deep tech.
+        </p>
       </div>
-      <!-- Demo 2 -->
-      <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
-        <div class="aspect-video bg-gray-300 mb-4 rounded-lg">
-          <iframe class="w-full h-full rounded-lg"
-                  src="https://www.youtube.com/embed/WM9nvMdK99A" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Inventory Management</h3>
-        <p>Predictive stock optimisation demo.</p>
+      <!-- Ravi -->
+      <div class="bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+        <img src="ravi.jpg" alt="Ravi Kumar" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover border-4 border-blue-200 hover:border-blue-400 transition-all duration-300" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDgiIGN5PSI0OCIgcj0iNDgiIGZpbGw9IiM0Njg1RjEiLz4KPHN2ZyB4PSIyNCIgeT0iMjQiIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xMiAxMkMxNC4yMDkxIDEyIDE2IDEwLjIwOTEgMTYgOEMxNiA1Ljc5MDg2IDE0LjIwOTEgNCAxMiA0QzkuNzkwODYgNCA4IDUuNzkwODYgOCA4QzggMTAuMjA5MSA5Ljc5MDg2IDEyIDEyIDEyWk0xMiAxNEM5LjMzIDE0IDUgMTUuMzQgNSAxOFYyMEgxOVYxOEMxOSAxNS4zNCAxNC42NyAxNCAxMiAxNFoiLz4KPC9zdmc+Cjwvc3ZnPgo='">
+        <h3 class="text-xl font-semibold text-center">Ravi Kumar</h3>
+        <p class="text-center text-sm text-gray-600">Co-founder</p>
+        <p class="mt-4 text-gray-700 text-sm">
+          Full-stack polyglot who scales systems to millions of users. Loves clean architecture and caffeinated code reviews.
+        </p>
       </div>
-      <!-- Demo 3 NEW -->
-      <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
-        <div class="aspect-video bg-gray-300 mb-4 rounded-lg">
-          <iframe class="w-full h-full rounded-lg"
-                  src="https://www.youtube.com/embed/pF1FvUyrvWI" frameborder="0" allowfullscreen></iframe>
+      <!-- Abhishek -->
+      <div class="bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+        <img src="abhishek.jpg" alt="Abhishek Malyan" class="w-24 h-24 mx-auto rounded-full mb-4 object-cover border-4 border-blue-200 hover:border-blue-400 transition-all duration-300" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDgiIGN5PSI0OCIgcj0iNDgiIGZpbGw9IiM0Njg1RjEiLz4KPHN2ZyB4PSIyNCIgeT0iMjQiIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xMiAxMkMxNC4yMDkxIDEyIDE2IDEwLjIwOTEgMTYgOEMxNiA1Ljc5MDg2IDE0LjIwOTEgNCAxMiA0QzkuNzkwODYgNCA4IDUuNzkwODYgOCA4QzggMTAuMjA5MSA5Ljc5MDg2IDEyIDEyIDEyWk0xMiAxNEM5LjMzIDE0IDUgMTUuMzQgNSAxOFYyMEgxOVYxOEMxOSAxNS4zNCAxNC42NyAxNCAxMiAxNFoiLz4KPC9zdmc+Cjwvc3ZnPgo='">
+        <h3 class="text-xl font-semibold text-center">Abhishek Malyan</h3>
+        <p class="text-center text-sm text-gray-600">Co-founder</p>
+        <p class="mt-4 text-gray-700 text-sm">
+          Puts numbers to work—ML, BI dashboards, and actionable insights that power board-room decisions.
+        </p>
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-12 rounded-3xl shadow-xl border border-blue-100 transform hover:scale-105 transition-all duration-500">
+        <div class="text-center mb-8">
+          <div class="text-6xl mb-4 animate-pulse">🎯</div>
+          <h3 class="text-4xl font-bold text-gray-800 mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Our Mission</h3>
         </div>
-        <h3 class="text-xl font-semibold mb-2">Custom AI Solution</h3>
-        <p>Tailored AI from blank page to production.</p>
+        <p class="text-xl text-gray-700 leading-relaxed text-center">
+          Enable organisations to <span class="font-semibold text-blue-600">leapfrog from idea to impact</span>—through craftsmanship in software,
+          obsessively human-centric design, and evidence-driven advisory.
+        </p>
+        <div class="mt-8 text-center">
+          <p class="text-lg text-gray-600 italic">
+            "We don't just build software—we engineer solutions that reshape industries."
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -609,9 +672,57 @@
     document.getElementById('mobile-menu').classList.toggle('hidden');
   });
 
-  /* GSAP fade-in */
+  /* Premium scroll animations */
   gsap.registerPlugin(ScrollTrigger);
-  gsap.utils.toArray('.services-grid > div, .demos-grid > div, .projects-grid > div').forEach(el=>{
+  
+  // Hero content animation
+  gsap.to('.hero-content', {
+    opacity: 1,
+    y: 0,
+    duration: 1.5,
+    ease: "power2.out",
+    delay: 0.5
+  });
+  
+  // Navbar reveal on scroll
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 100) {
+      navbar.classList.remove('-translate-y-full');
+    } else {
+      navbar.classList.add('-translate-y-full');
+    }
+  });
+  
+  // Services header animation
+  gsap.to('.services-header', {
+    scrollTrigger: {
+      trigger: '#services',
+      start: 'top 80%',
+      end: 'bottom 20%',
+      toggleActions: 'play none none reverse'
+    },
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power2.out"
+  });
+  
+  // Service cards staggered animation
+  gsap.from('.service-card', {
+    scrollTrigger: {
+      trigger: '.services-scroll-container',
+      start: 'top 80%'
+    },
+    opacity: 0,
+    y: 100,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "power2.out"
+  });
+  
+  // Projects animation
+  gsap.utils.toArray('.projects-grid > div').forEach(el=>{
     gsap.from(el,{scrollTrigger:{trigger:el,start:'top 80%'},opacity:0,y:50,duration:.8});
   });
 
