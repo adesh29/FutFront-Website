@@ -99,6 +99,8 @@
     
     .services-grid {
       animation: scroll-services 60s linear infinite;
+      animation-delay: 2s;
+      animation-play-state: paused;
       display: flex;
       gap: 2rem;
       width: max-content;
@@ -109,6 +111,24 @@
     .service-card {
       flex-shrink: 0;
       height: auto;
+      padding: 1.5rem !important;
+      border-radius: 0.75rem !important;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+      min-width: 280px !important;
+    }
+    
+    .service-card .text-5xl {
+      font-size: 2.25rem !important;
+      margin-bottom: 1rem !important;
+    }
+    
+    .service-card h3 {
+      font-size: 1.25rem !important;
+      margin-bottom: 0.75rem !important;
+    }
+    
+    .service-card p {
+      font-size: 0.875rem !important;
     }
     
     @keyframes scroll-services {
@@ -811,20 +831,7 @@
     ease: "power2.out"
   });
   
-  // Service cards staggered animation
-  gsap.from('.service-card', {
-    scrollTrigger: {
-      trigger: '.services-scroll-container',
-      start: 'top 80%',
-      end: 'bottom 20%',
-      toggleActions: 'play none none reverse'
-    },
-    opacity: 0,
-    y: 100,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: "power2.out"
-  });
+
   
   // Projects animation
   gsap.utils.toArray('.projects-grid > div').forEach(el=>{
@@ -868,13 +875,21 @@
   function openModal(id){document.getElementById(id).style.display='flex';}
   function closeModal(id){document.getElementById(id).style.display='none';}
 
-  /* Ensure services are visible */
-  setTimeout(() => {
-    document.querySelectorAll('.service-card').forEach(card => {
-      card.style.opacity = '1';
-      card.style.transform = 'translateY(0)';
-    });
-  }, 1000);
+  /* Ensure services are visible and animation starts properly */
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.service-card').forEach(card => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      });
+      
+      // Start the scroll animation after page is fully loaded
+      const servicesGrid = document.querySelector('.services-grid');
+      if (servicesGrid) {
+        servicesGrid.style.animationPlayState = 'running';
+      }
+    }, 2000);
+  });
 
   /* Contact-form → Google Sheet */
   const SCRIPT_URL='https://script.google.com/macros/s/AKfycbwbLM74KZryYxo5gwXBeSaYh2yqNG4aJeE5UIdIaz0W0nHreXqu7YpFTeXgSgyEmz6Qqw/exec';
