@@ -92,9 +92,8 @@
     
     /* Continuous scroll animation for services */
     .services-grid {
-      animation: scroll-services 20s linear infinite;
-      scroll-behavior: auto;
-      scroll-snap-type: none;
+      animation: scroll-services 30s linear infinite;
+      width: max-content;
     }
     
     @keyframes scroll-services {
@@ -397,8 +396,8 @@
       <p class="text-xl text-center text-gray-600 max-w-3xl mx-auto">Innovation at every touchpoint, from concept to deployment</p>
     </div>
     
-    <div class="services-scroll-container mt-20">
-      <div class="flex gap-8 services-grid overflow-x-auto pb-8 scrollbar-hide" style="scroll-behavior: auto;">
+    <div class="services-scroll-container mt-20 overflow-hidden">
+      <div class="flex gap-8 services-grid pb-8">
 
       <!-- AI CX -->
       <div class="service-card bg-gradient-to-br from-purple-50 to-indigo-50 p-12 rounded-3xl shadow-xl border border-purple-100 cursor-pointer min-w-[400px] transform hover:scale-105 transition-all duration-500"
