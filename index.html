@@ -6,7 +6,7 @@
 <script>document.documentElement.classList.replace('no-js','js')</script>
 
 <title>FutFront | Zero-to-One Product Studio: Strategy, AI &amp; Engineering</title>
-<meta name="description" content="FutFront takes ideas from zero to one: market-fit validation, product mapping, AI and full-stack engineering, launch and scale. Built by IIT Bombay founders.">
+<meta name="description" content="FutFront (Future Frontier) helps people build products that build their future: market-fit validation, product mapping, AI and engineering, launch and scale.">
 <link rel="canonical" href="https://www.futfront.com/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#07060b">
@@ -48,8 +48,8 @@
       "url": "https://www.futfront.com/",
       "logo": "https://www.futfront.com/FutFrontlogo.png",
       "image": "https://www.futfront.com/og-image.png",
-      "description": "FutFront is an IIT Bombay founder-led zero-to-one product studio. We take ideas from market-fit validation and product mapping through design, AI and full-stack engineering to launch and scale.",
-      "slogan": "From zero to one, end to end.",
+      "description": "FutFront (Future Frontier) is an IIT Bombay founder-led zero-to-one product studio that helps people build products that build their future. We take ideas from market-fit validation and product mapping through design, AI and full-stack engineering to launch and scale.",
+      "slogan": "We help people build products that build their future.",
       "founder": [
         {"@type": "Person", "name": "Adesh Bhavsar", "jobTitle": "Co-founder", "alumniOf": "Indian Institute of Technology Bombay"},
         {"@type": "Person", "name": "Ravi Kumar", "jobTitle": "Co-founder", "alumniOf": "Indian Institute of Technology Bombay"},
@@ -78,6 +78,7 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
+        {"@type": "Question", "name": "What does FutFront stand for?", "acceptedAnswer": {"@type": "Answer", "text": "FutFront stands for Future Frontier. We help people build products that build their future, and we stay accountable after launch instead of handing over and moving on."}},
         {"@type": "Question", "name": "What does FutFront do?", "acceptedAnswer": {"@type": "Answer", "text": "FutFront is a zero-to-one product studio. We take ideas from market-fit validation and product mapping through design, AI and full-stack engineering to launch and scale, as one end-to-end partner."}},
         {"@type": "Question", "name": "Can you help before we have a product?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, that is where we start. We validate the market, map the product and scope an MVP before writing code, so you invest in what customers will actually use."}},
         {"@type": "Question", "name": "What does an engagement look like?", "acceptedAnswer": {"@type": "Answer", "text": "Four phases: discover and validate, map the product, build and ship, then launch and scale. You can engage us for the full journey or for a single phase, such as a market-fit study or an MVP build."}},
@@ -233,6 +234,9 @@ section{position:relative}
 /* ── manifesto ── */
 .manifesto__text{font-size:clamp(28px,4.3vw,74px);line-height:1.07;letter-spacing:-.035em;font-weight:450;max-width:1400px;margin-top:28px}
 .manifesto__text em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--accent)}
+.story{display:grid;grid-template-columns:1fr 1.7fr;gap:clamp(24px,5vw,90px);margin-top:clamp(56px,7vw,110px);padding-top:28px;border-top:1px solid var(--rule)}
+.story p{font-size:clamp(17px,1.45vw,23px);line-height:1.55;letter-spacing:-.01em;color:var(--fg);max-width:62ch}
+.story p+p{margin-top:18px;color:var(--fg-muted)}
 .manifesto__sign{display:flex;gap:28px;flex-wrap:wrap;margin-top:clamp(40px,5vw,72px);color:var(--fg-muted)}
 .manifesto__sign b{color:var(--fg);font-weight:500}
 
@@ -288,7 +292,7 @@ section{position:relative}
 .sector-list a:hover .sector__desc,.sector-list a:hover .mono{color:rgba(7,6,11,.6)}
 .sector__count{font-size:clamp(22px,2vw,32px);font-weight:500;letter-spacing:-.03em;text-align:right;font-variant-numeric:tabular-nums}
 .sector-list .mono{color:var(--fg-muted)}
-.sector-preview{position:fixed;left:0;top:0;width:340px;height:230px;margin:-115px 0 0 -170px;border-radius:20px;overflow:hidden;pointer-events:none;z-index:60;background:var(--ink-3);border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 80px rgba(0,0,0,.45);opacity:0;transform:scale(.6)}
+.sector-preview{position:fixed;left:0;top:0;width:clamp(200px,18vw,270px);aspect-ratio:3/2;border-radius:16px;overflow:hidden;pointer-events:none;z-index:60;background:var(--ink-3);border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 60px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:scale(.85);transform-origin:50% 50%}
 
 /* ── catalog ── */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
@@ -453,7 +457,7 @@ section{position:relative}
   .panel{width:100%;height:auto;grid-template-columns:1fr}
   .panel__art{aspect-ratio:16/10}
   .panel__title{margin-top:8px}
-  .approach__grid,.faq__grid,.contact__grid,.case__inner{grid-template-columns:1fr}
+  .approach__grid,.faq__grid,.contact__grid,.case__inner,.story{grid-template-columns:1fr}
   .approach__intro,.case__head{position:static}
   .sector-list a{grid-template-columns:44px 1fr auto}
   .sector__desc{display:none}
@@ -487,7 +491,7 @@ section{position:relative}
   <div class="loader__inner">
     <div class="loader__top">
       <span class="loader__brand"><img src="FutFrontlogo.png" alt="" width="30" height="35">FutFront</span>
-      <span class="mono">Engineering what’s next</span>
+      <span class="mono">Future Frontier</span>
     </div>
     <div class="loader__count"><span id="count">0</span><sup>%</sup></div>
   </div>
@@ -526,7 +530,7 @@ section{position:relative}
   <canvas id="gl" aria-hidden="true"></canvas>
   <div class="hero__veil"></div>
   <div class="hero__content wrap">
-    <p class="eyebrow mono" data-scramble>FutFront: Zero-to-one product studio</p>
+    <p class="eyebrow mono" data-scramble>Future Frontier · Zero-to-one product studio</p>
     <h1 class="hero__title" id="hero-h">From zero to one,<br><em class="serif">end to end.</em></h1>
     <div class="hero__row">
       <p class="hero__sub">We take your idea from <strong>market fit and product mapping</strong> to a shipped, scaling product, with strategy, design, AI and engineering under one roof. Founded by IIT Bombay alumni.</p>
@@ -549,11 +553,18 @@ section{position:relative}
   <div class="marquee__row marquee__row--alt" aria-hidden="true"><div class="marquee__track"><span>Claude</span><span>GPT-4o</span><span>AWS Bedrock</span><span>Databricks</span><span>ClickHouse</span><span>LangGraph</span><span>FastAPI</span><span>Next.js</span><span>Whisper</span><span>PostgreSQL</span></div></div>
 </section>
 
-<!-- ███ MANIFESTO ███ -->
+<!-- ███ STORY ███ -->
 <section class="sec manifesto" id="about" data-theme="paper" aria-labelledby="about-h">
   <div class="wrap">
-    <h2 class="mono label" id="about-h">( 01 · Who we are )</h2>
-    <p class="manifesto__text">We’re your zero-to-one partner, not another vendor. We start where the idea is still a hunch: who it’s for, whether the market wants it, what to build first. Then we map it, design it, engineer it and <em>ship it,</em> and stay on until it scales. One team, from the first whiteboard to the thousandth user.</p>
+    <h2 class="mono label" id="about-h">( 01 · Our story )</h2>
+    <p class="manifesto__text">FutFront stands for <em>Future Frontier.</em> We help people build products that build their future.</p>
+    <div class="story">
+      <h3 class="mono label" data-reveal>Why we started</h3>
+      <div data-reveal>
+        <p>Too many founders and businesses pay a consultancy, an MSP or a dev shop for a product and get a half-finished handover. The code ships, the vendor moves on, and the real problems arrive after launch: features nobody validated, systems that won’t scale, bugs nobody owns. The client ends up solving them alone.</p>
+        <p>We started FutFront to be the partner we wish they’d had. One team that validates the idea, maps the product, builds it properly and stays accountable after it goes live, from the first whiteboard to the thousandth user.</p>
+      </div>
+    </div>
     <div class="manifesto__sign mono" data-reveal>
       <span><b>3</b> IIT Bombay co-founders</span>
       <span><b>18</b> products shipped</span>
@@ -1180,6 +1191,7 @@ section{position:relative}
   <div class="wrap faq__grid">
     <div><span class="mono label">( 10 · FAQ )</span><h2 id="faq-h" class="split-reveal" style="font-size:clamp(46px,6.6vw,116px);line-height:.94;letter-spacing:-.05em;font-weight:500;margin-top:22px">Good <em class="serif">questions</em></h2></div>
     <div class="faq__list">
+      <details><summary>What does FutFront stand for?<i aria-hidden="true"></i></summary><p>FutFront stands for Future Frontier. We help people build products that build their future, and we stay accountable after launch instead of handing over and moving on.</p></details>
       <details><summary>What does FutFront do?<i aria-hidden="true"></i></summary><p>FutFront is a zero-to-one product studio. We take ideas from market-fit validation and product mapping through design, AI and full-stack engineering to launch and scale, as one end-to-end partner.</p></details>
       <details><summary>Can you help before we have a product?<i aria-hidden="true"></i></summary><p>Yes, that is where we start. We validate the market, map the product and scope an MVP before writing code, so you invest in what customers will actually use.</p></details>
       <details><summary>What does an engagement look like?<i aria-hidden="true"></i></summary><p>Four phases: discover and validate, map the product, build and ship, then launch and scale. You can engage us for the full journey or for a single phase, such as a market-fit study or an MVP build.</p></details>
@@ -1221,7 +1233,7 @@ section{position:relative}
     <div class="footer__top">
       <div>
         <a href="#home" class="nav__brand" style="margin-bottom:16px"><img src="FutFrontlogo.png" alt="" width="26" height="30">FutFront</a>
-        <p>Zero-to-one product studio: market fit, product mapping, AI and engineering. Built by IIT Bombay founders.</p>
+        <p>Future Frontier: we help people build products that build their future. Market fit, product mapping, AI and engineering, by IIT Bombay founders.</p>
       </div>
       <div><h4>Explore</h4><ul><li><a href="#services">Services</a></li><li><a href="#work">Featured work</a></li><li><a href="#catalog">Catalog</a></li><li><a href="#process">Process</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="#team">Team</a></li><li><a href="#demos">Demos</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li></ul></div>
@@ -1251,7 +1263,6 @@ section{position:relative}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Flip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrambleTextPlugin.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/CustomEase.min.js"></script>
 <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
@@ -1295,7 +1306,7 @@ section{position:relative}
 
   if (!window.gsap || !window.ScrollTrigger) { html.classList.replace('js', 'no-js'); return; }
 
-  gsap.registerPlugin(ScrollTrigger, SplitText, Flip, ScrambleTextPlugin, CustomEase);
+  gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin, CustomEase);
   CustomEase.create('ff', '0.65,0.05,0,1');
   CustomEase.create('ffo', '0.16,1,0.3,1');
   gsap.defaults({ ease: 'ffo', duration: 1.1 });
@@ -1309,7 +1320,7 @@ section{position:relative}
     gsap.ticker.lagSmoothing(0);
     lenis.stop();
   }
-  const scrollToEl = el => lenis ? lenis.scrollTo(el, { duration: 1.6, easing: t => 1 - Math.pow(1 - t, 4) }) : el.scrollIntoView({ behavior: RM ? 'auto' : 'smooth' });
+  const scrollToEl = (el, offset = 0) => lenis ? lenis.scrollTo(el, { offset, duration: 1.6, easing: t => 1 - Math.pow(1 - t, 4) }) : el.scrollIntoView({ behavior: RM ? 'auto' : 'smooth' });
 
   /* ── menu ── */
   const burger = $('.nav__burger');
@@ -1536,22 +1547,31 @@ section{position:relative}
   $('#caseNext').addEventListener('click', () => openCase(cards[(cards.indexOf(current) + 1) % cards.length]));
   cards.forEach(card => { card.dataset.cursor = 'view'; $('.card__link', card).addEventListener('click', () => openCase(card)); });
 
-  /* filters (Flip) */
+  /* filters: fade out → swap → stagger in (deterministic, no layout tweening) */
   const cats = [...new Set(cards.map(c => c.dataset.cat))];
   const filterBar = $('#filters');
   const chip = (label, n) => `<button class="chip" type="button" data-filter="${label}" aria-pressed="${label === 'All'}">${label}<sup>${pad(n)}</sup></button>`;
   filterBar.innerHTML = chip('All', cards.length) + cats.map(c => chip(c, cards.filter(x => x.dataset.cat === c).length)).join('');
   $$('[data-cat-count]').forEach(el => { el.textContent = pad(cards.filter(c => c.dataset.cat === el.dataset.catCount).length); });
+  const grid = $('#grid');
+  let filterTl;
   function setFilter(cat) {
     $$('.chip', filterBar).forEach(b => b.setAttribute('aria-pressed', b.dataset.filter === cat));
-    const state = Flip.getState(cards);
-    cards.forEach(c => { c.hidden = !(cat === 'All' || c.dataset.cat === cat); });
-    Flip.from(state, {
-      duration: RM ? 0 : .8, ease: 'ff', absolute: true, scale: true, nested: true,
-      onEnter: els => gsap.fromTo(els, { autoAlpha: 0, scale: .92 }, { autoAlpha: 1, scale: 1, duration: .6 }),
-      onLeave: els => gsap.to(els, { autoAlpha: 0, scale: .92, duration: .4 }),
-      onComplete: () => ScrollTrigger.refresh()
-    });
+    const show = cards.filter(c => cat === 'All' || c.dataset.cat === cat);
+    const swap = () => {
+      gsap.killTweensOf(cards);
+      cards.forEach(c => { c.hidden = !show.includes(c); });
+      gsap.set(cards, { rotationX: 0, rotationY: 0 });
+      ScrollTrigger.refresh();
+    };
+    filterTl?.kill();
+    if (filterBar.getBoundingClientRect().top < 0) scrollToEl(filterBar, -110);
+    if (RM) { swap(); gsap.set(show, { autoAlpha: 1, y: 0 }); return; }
+    filterTl = gsap.timeline()
+      .to(grid, { autoAlpha: 0, y: 14, duration: .22, ease: 'power2.in' })
+      .add(swap)
+      .set(grid, { autoAlpha: 1, y: 0 })
+      .fromTo(show, { autoAlpha: 0, y: 36 }, { autoAlpha: 1, y: 0, stagger: .045, duration: .7, ease: 'ffo', immediateRender: false });
   }
   filterBar.addEventListener('click', e => { const b = e.target.closest('.chip'); if (b) setFilter(b.dataset.filter); });
 
@@ -1592,15 +1612,27 @@ section{position:relative}
     /* sector hover preview follows cursor */
     const prev = $('.sector-preview'), prevArt = art($('canvas', prev), 'candles', 'sector');
     prevArt.on = false; artIO.unobserve(prev.firstElementChild);
-    const pX = gsap.quickTo(prev, 'x', { duration: .7, ease: 'power3' }), pY = gsap.quickTo(prev, 'y', { duration: .7, ease: 'power3' });
-    const list = $('.sector-list');
-    list.addEventListener('pointermove', e => { pX(e.clientX); pY(e.clientY); });
+    const pX = gsap.quickTo(prev, 'x', { duration: .6, ease: 'power3' }), pY = gsap.quickTo(prev, 'y', { duration: .6, ease: 'power3' });
+    const list = $('.sector-list'), wide = matchMedia('(min-width: 1024px)');
+    // sit beside the cursor (flip to the left near the right edge) so the hovered row stays readable
+    const place = (e, now) => {
+      const w = prev.offsetWidth, h = prev.offsetHeight, row = e.target.closest('a[data-kind]');
+      let x = Math.max(e.clientX + 36, row ? $('.sector__name', row).getBoundingClientRect().right + 32 : 0);
+      if (x + w > innerWidth - 16) x = e.clientX - 36 - w;
+      const y = gsap.utils.clamp(80, innerHeight - h - 16, e.clientY - h / 2);
+      if (now) gsap.set(prev, { x, y }); else { pX(x); pY(y); }
+    };
+    list.addEventListener('pointermove', e => place(e));
     list.addEventListener('pointerover', e => {
       const a = e.target.closest('a[data-kind]'); if (!a || prevArt.kind === a.dataset.kind && prevArt.on) return;
       prevArt.kind = a.dataset.kind; prevArt.seed = hash(a.dataset.filter); prevArt.data = null;
     });
-    list.addEventListener('pointerenter', e => { gsap.set(prev, { x: e.clientX, y: e.clientY }); prevArt.on = true; gsap.to(prev, { autoAlpha: 1, scale: 1, duration: .5, ease: 'ffo' }); });
-    list.addEventListener('pointerleave', () => gsap.to(prev, { autoAlpha: 0, scale: .6, duration: .4, ease: 'power2.in', onComplete: () => { prevArt.on = false; } }));
+    list.addEventListener('pointerenter', e => { if (!wide.matches) return; place(e, true); prevArt.on = true; gsap.to(prev, { autoAlpha: 1, scale: 1, duration: .45, ease: 'ffo', overwrite: 'auto' }); });
+    const hidePrev = () => gsap.to(prev, { autoAlpha: 0, scale: .85, duration: .3, ease: 'power2.in', overwrite: 'auto', onComplete: () => { prevArt.on = false; } });
+    list.addEventListener('pointerleave', hidePrev);
+    list.addEventListener('click', hidePrev);
+    // no pointerleave fires when the list scrolls away under a still mouse
+    new IntersectionObserver(([e]) => { if (!e.isIntersecting) hidePrev(); }).observe(list);
   }
 
   /* ═════════ loader → hero intro ═════════ */
