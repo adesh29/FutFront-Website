@@ -358,6 +358,15 @@ section{position:relative}
 .demo__play svg{width:16px;height:16px;margin-left:3px}
 .demo__media:hover .demo__play{transform:scale(1.12)}
 .demo h3{font-size:24px;letter-spacing:-.03em;font-weight:500;margin-top:18px}
+.demo--feature{grid-column:1/-1;display:grid;grid-template-columns:1.7fr 1fr;gap:clamp(20px,3.5vw,56px);align-items:end;margin-bottom:clamp(24px,3vw,40px)}
+.demo--feature .demo__media{border-radius:26px}
+.demo--feature .demo__play{width:76px;height:76px;left:24px;bottom:24px}
+.demo__info .mono{color:var(--saffron)}
+.demo--feature h3{font-size:clamp(30px,3.2vw,52px);line-height:1.02;letter-spacing:-.045em;margin-top:14px}
+.demo--feature p{font-size:clamp(15px,1.15vw,18px);margin-top:14px;max-width:40ch}
+.demo__case{display:inline-flex;gap:8px;margin-top:22px;font-size:15px;border-bottom:1px solid var(--line);padding-bottom:4px}
+.demo__case span{transition:transform .5s var(--ease)}
+.demo__case:hover span{transform:translateX(6px)}
 .demo p{color:var(--muted);margin-top:6px;font-size:15px}
 
 /* ── team ── */
@@ -452,6 +461,7 @@ section{position:relative}
   .footer__top>div:first-child{grid-column:1/-1}
 }
 @media (max-width:900px){
+  .demo--feature{grid-template-columns:1fr}
   .work__pin{height:auto;padding-block:clamp(90px,12vw,140px)}
   .work__track{flex-direction:column;width:auto}
   .panel{width:100%;height:auto;grid-template-columns:1fr}
@@ -1137,6 +1147,18 @@ section{position:relative}
   <div class="wrap">
     <header class="sec-head"><div><span class="mono label">( 08 · Demos )</span><h2 id="demos-h" class="split-reveal">See it <em class="serif">run</em></h2></div><p class="sec-head__aside" data-reveal>Short walkthroughs of products in action.</p></header>
     <div class="demos__grid">
+      <article class="demo demo--feature" data-reveal>
+        <button class="demo__media" type="button" data-yt="aNTxj1PyuKA" data-cursor="play" aria-label="Play demo: Risk Management &amp; Trade Surveillance">
+          <img src="https://i.ytimg.com/vi/aNTxj1PyuKA/hq2.jpg" alt="Risk management platform demo: trade data upload screen" width="480" height="360" loading="lazy" decoding="async">
+          <span class="demo__play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 1l13 7-13 7z" fill="currentColor"/></svg></span>
+        </button>
+        <div class="demo__info">
+          <span class="mono">Featured demo · Financial Markets</span>
+          <h3>Risk Management &amp; Trade Surveillance</h3>
+          <p>A walkthrough of the platform compliance teams use to catch front-running, manipulation and poor execution, with every alert explained and audit-ready.</p>
+          <a href="#risk-surveillance" class="demo__case" data-case="risk-surveillance">Read the case study <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
       <article class="demo" data-reveal>
         <button class="demo__media" type="button" data-yt="RU1xcT3lPlY" data-cursor="play" aria-label="Play demo: Competitive Intelligence">
           <img src="https://i.ytimg.com/vi/RU1xcT3lPlY/hqdefault.jpg" alt="Competitive Intelligence demo video thumbnail" width="480" height="360" loading="lazy" decoding="async">
@@ -1333,6 +1355,7 @@ section{position:relative}
     const id = a.getAttribute('href'), el = id.length > 1 && document.querySelector(id);
     if (!el) return;
     e.preventDefault();
+    if (a.dataset.case) return openCase(el);
     if (html.classList.contains('menu-open')) setMenu(false);
     if (a.dataset.filter) setFilter(a.dataset.filter);
     scrollToEl(el);
